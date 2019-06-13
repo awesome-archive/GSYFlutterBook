@@ -28,7 +28,7 @@
 
 | Widget        | RenderObject                                    |
 | --------- |  --------- |
-| RenderConstrainedBox | RenderConstrainedBox |
+| ConstrainedBox | RenderConstrainedBox |
 
 ![ConstrainedBox](http://img.cdn.guoshuyu.cn/20190604_Flutter-7/image2)
 
@@ -157,7 +157,6 @@ CustomScrollView(
   ],
 )
 ```
-
 
 -------
 
