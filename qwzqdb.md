@@ -17,7 +17,7 @@
 语言 |JavaScript | dart
 环境|JSCore|Flutter Engine
 发布时间|2015|2017
-star|67k+|78k+
+star|78k+|67k+
 对比版本|0.59.9|1.6.3
 空项目打包大小| Android  20M(可调整至 7.3M) /  IOS 1.6M |   Android 5.2M / IOS 10.1M
 GSY项目大小| Android 28.6M / IOS 9.1M |   Android  11.6M /  IOS  21.5M
