@@ -315,7 +315,7 @@ dynamic dynamicName = 'dynamic Dart';
 
 接着看完整结果，如下图所示，是空项目下 和 GSY 实际项目下， **React Native** 和 **Flutter**  的 Release 包大小对比。
 
-可以看出在 **React Native 同等条件下， IOS 比 Android 大很多** ，这是因为 *IOS* 自带了 **JSCore** ，而 *Android* 需要各类动态 **so** 内置支持，而且这里 *Android* 的动态库 **so** 是经过了 `ndk` 过滤后的大小，不然还会更大。
+可以看出在 **React Native 同等条件下， Android 比 IOS 大很多** ，这是因为 *IOS* 自带了 **JSCore** ，而 *Android* 需要各类动态 **so** 内置支持，而且这里 *Android* 的动态库 **so** 是经过了 `ndk` 过滤后的大小，不然还会更大。
 
 **Flutter** 和 **React Native** 则是相反，因为 *Android* 自带了 **skia** ，所以比没有自带 **skia** 的 *IOS* 会小得多。
 
