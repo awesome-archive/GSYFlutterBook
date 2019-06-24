@@ -92,7 +92,7 @@
 ![](http://img.cdn.guoshuyu.cn/20190604_Flutter-14/image5)
 
 > 完整版可见 [flutter_app_lib](https://github.com/CarGuo/flutter_app_lib) 。
-   
+
 ## 四、堆栈
 
 最后需要说的问题就是堆栈了。
@@ -117,9 +117,11 @@
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
 * 本文Demo ：https://github.com/CarGuo/flutter_app_lib 
-* 推荐完整代码 ：https://github.com/CarGuo/GSYGithubAppFlutter
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 单例子学习项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 

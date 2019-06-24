@@ -364,9 +364,10 @@ Android 中 `Flutter` 默认启动时会在 `FlutterActivityDelegate.java ` 中�
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
-* 本文Demo ：https://github.com/CarGuo/state_manager_demo
-* 本文代码 ：https://github.com/CarGuo/GSYGithubAppFlutter
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 单例子学习项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 

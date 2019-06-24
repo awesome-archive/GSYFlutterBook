@@ -318,8 +318,10 @@ IOS？据我了解，貌似动态库 framework 等引用是不能用热更新的
 
 ### 资源推荐
 
-* Github ： [https://github.com/CarGuo](https://github.com/CarGuo)
-* 本文代码 ：[https://github.com/CarGuo/GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter)
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 单例子学习项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 

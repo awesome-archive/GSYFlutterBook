@@ -498,11 +498,14 @@ class DemoApp extends StatelessWidget {
 ![最终显示](http://img.cdn.guoshuyu.cn/20190604_Flutter-1/image3)
 
 
-好吧，第一部分终于完了，这里主要讲解都是一些简单基础的东西，适合安利入坑，后续还有两篇主要实战，敬请期待哟！(￣^￣)ゞ
+好吧，第一部分终于完了，这里主要讲解都是一些简单基础的东西，适合安利入坑，后续更多实战等你开启
 
 ### 资源推荐
 
-Github ： [https://github.com/CarGuo/](https://github.com/CarGuo/)
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 单例子学习项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 
@@ -513,6 +516,7 @@ Github ： [https://github.com/CarGuo/](https://github.com/CarGuo/)
 ##### 文章
 
 [《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
+
 [《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
 
 

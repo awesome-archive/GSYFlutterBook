@@ -122,7 +122,7 @@ The [estimatedBounds] rectangle is in the [canvas] coordinate system.
 在 `_RenderSlider` 中，除了 **手势** 和 **动画** 之外，其余的每个绘制的部分，都是独立的 *Component* 去完成绘制，而这些 *Component* 都是通过 `SliderTheme` 的 `SliderThemeData` 提供的。
 
 巧合的是，`SliderTheme` 本身就是一个 `InheritedWidget` 。看过以前篇章的同学应该会知道， `InheritedWidget`  一般就是用于做状态共享的，所以如果你需要自定义  `Slider`  ，完成可以通过 `SliderTheme` 嵌套，然后通过 `SliderThemeData` 选择性的自定义你需要的模块。
- 
+
 ![](http://img.cdn.guoshuyu.cn/20190604_Flutter-9/image12)
 
 并且如下图，在 `_RenderSlider`  中注册时手势和动画，会在监听中去触发 `markNeedsPaint` 方法，这就是为什么你的触摸能够响应画面的原因了。
@@ -140,8 +140,10 @@ The [estimatedBounds] rectangle is in the [canvas] coordinate system.
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
-* 本文代码 ：https://github.com/CarGuo/GSYGithubAppFlutter
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 单例子学习项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 

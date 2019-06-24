@@ -417,9 +417,11 @@ flutter 作为一个UI 框架，与平台无关，在web上利用的是dart2js�
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
-
 * RTC社区 ： https://rtcdeveloper.com
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 单例子学习项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 
 ![我们还会再见吗？](http://img.cdn.guoshuyu.cn/20190604_Flutter-rtc-meetup/image35)

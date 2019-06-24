@@ -15,6 +15,8 @@
 
 - ### [掘金博客 恋猫de小郭](https://juejin.im/user/582aca2ba22b9d006b59ae68/posts)
 
+- ### [开源 Flutter 单例子学习项目](https://github.com/CarGuo/GSYFlutterDemo)
+
 ----
 
 

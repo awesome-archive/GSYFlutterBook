@@ -393,15 +393,19 @@ GSY IOS |![GSYGithubAPP.ipa](http://img.cdn.guoshuyu.cn/20190621_qwzq/image17)|!
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
-* 开源 Flutter 项目：https://github.com/CarGuo/GSYGithubAppFlutter
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 单例子学习项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
+
 * 开源 React Native 项目：https://github.com/CarGuo/GSYGithubApp
-* 开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook
 
 
 ##### 文章
 
 [《Flutter完整开发实战详解系列》](https://juejin.im/user/582aca2ba22b9d006b59ae68/posts)
+
+
 
 [《移动端跨平台开发的深度解析》](https://www.jianshu.com/p/7e0bd4708ba7)
 
