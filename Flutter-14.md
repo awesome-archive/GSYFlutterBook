@@ -120,7 +120,7 @@
 * 本文Demo ：https://github.com/CarGuo/flutter_app_lib 
 * Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
 * **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
-* **开源 Flutter 单例子学习项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
 * **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
