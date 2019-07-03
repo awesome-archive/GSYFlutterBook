@@ -14,7 +14,7 @@
 > * [十、  深入图片加载流程](https://juejin.im/post/5cb1896ce51d456e63760449)
 > * [十一、全面深入理解Stream](https://juejin.im/post/5cc2acf86fb9a0321f042041) 
 > * [十二、全面深入理解状态管理设计](https://juejin.im/post/5cc816866fb9a03231209c7c) 
-> * [十三、全面深入触摸和滑动原理](https://juejin.im/editor/posts/5cd54839f265da03b2044c32) 
+> * [十三、全面深入触摸和滑动原理](https://juejin.im/post/5cd54839f265da03b2044c32) 
 > * [十四、混合开发打包 Android 篇](https://juejin.im/post/5cf527036fb9a07ed911acd8)
 > * [十五、全面理解State与Provider](https://juejin.im/post/5d0634c7f265da1b91639232)
 
@@ -130,9 +130,9 @@ abstract class ContainerBoxParentData<ChildType extends RenderObject> extends Bo
 - 4、override `RenderBox` 的 `performLayout` 和 `setupParentData` 方法，实现自定义布局。
 
 **当然我们可以利用官方的 `CustomMultiChildLayout` 实现自定义布局，这个后面也会讲到，现在让我们先从基础开始，** 而上述流程中混入的 `ContainerRenderObjectMixin` 和 `RenderBoxContainerDefaultsMixin` ，在 `RenderFlex` 、`RenderWrap` 、`RenderStack` 等官方实现的布局里，也都会混入它们。
- 
+
 ## 三、自定义布局
- 
+
 **自定义布局就是在 `performLayout` 中实现的 `child.layout` 大小和   `child.ParentData.offset` 位置的赋值。**
 
 ![](http://img.cdn.guoshuyu.cn/20190702_Flutter-16/image3)
@@ -153,7 +153,7 @@ class RenderCloudParentData extends ContainerBoxParentData<RenderBox> {
 }
 
 ```
-	 
+
 然后自定义 `RenderCloudWidget` 继承 `RenderBox` ，并混入 `ContainerRenderObjectMixin` 和 `RenderBoxContainerDefaultsMixin`  实现 `RenderBox` 自定义的简化。
 
 
@@ -171,8 +171,8 @@ class RenderCloudWidget extends RenderBox
    ///添加所有 child 
     addAll(children);
   }
-```	
-	
+```
+
 如下代码所示，接下来主要看 `RenderCloudWidget ` 中`override performLayout` 中的实现，这里我们只放关键代码：
 
 - 1、我们首先拿到 `ContainerRenderObjectMixin` 链表中的  `firstChild` ，然后从头到位读取整个链表。
@@ -275,8 +275,8 @@ void setupParentData(RenderBox child) {
     _needClip =
         size.width < recordRect.width || size.height < recordRect.height;
   }
-```	
-	 
+```
+
 **其实看完代码可以发现，关键就在于你怎么设置 `child.parentData` 的 `offset` ，来控制其位置。** 
 
 最后通过 `CloudWidget` 加载我们的 `RenderCloudWidget` 即可， 当然完整代码还需要结合 `FittedBox` 与 `RotatedBox` 简化完成，具体可见 ：[GSYFlutterDemo](https://github.com/CarGuo/GSYFlutterDemo/tree/master/lib/widget/cloud)
