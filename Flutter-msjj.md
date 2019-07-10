@@ -229,7 +229,7 @@ Zone.current.scheduleMicrotask((){
 
 Flutter 和 React Native 不同主要在于 **Flutter UI是直接通过 skia 渲染的 ，而 React Native 是将 js 中的控件转化为原生控件，通过原生去渲染的**  ，相关更多可查看：[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)。
 
-- Flutter 中存在 `Widget` 、 `Element` 、`RenderObject` 、`Layer` 四棵树，其中 **`Widget` 与 `Element` 是多对一的关系** ，
+- Flutter 中存在 `Widget` 、 `Element` 、`RenderObject` 、`Layer` 四棵树，其中 **`Widget` 与 `Element` 是一对多的关系** ，
 
 - `Element`  中持有`Widget` 和 `RenderObject` ， 而 **`Element` 与 `RenderObject` 是一一对应的关系** ，
 
