@@ -327,7 +327,6 @@ II、`UP` 的时候如果有多个，那么强制队列里第一个直接胜利�
 
 以 `Android` 的角度来说，从方便调试和解耦集成上，我们一般会以 `aar` 的形式集成混合开发，这里就会涉及到 `gradle` 打包的一个概念。
 
-
 1、如下代码所示，在项目中进行 `gradle` 脚本修改，组件化开发模式，用 `apk` 开发，用 `aar` 提供集成，正常修改 `gradle` 代码即可快速打包。
 
 ![](http://img.cdn.guoshuyu.cn/20190604_Flutter-rtc-meetup/image23)
@@ -350,6 +349,10 @@ II、`UP` 的时候如果有多个，那么强制队列里第一个直接胜利�
 所以这时候我们可以参考打包，修改我们的gradle脚本，利用 fat-aar 插件将本地 projcet 也打包的 aar 里。
 
 ![](http://img.cdn.guoshuyu.cn/20190604_Flutter-rtc-meetup/image27)
+
+
+
+> ## 官方未来将有 `Flutter build aar` 的方法可提供使用。
 
 3、混合开发的最大痛点是什么？
 

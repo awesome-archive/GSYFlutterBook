@@ -310,6 +310,8 @@ dynamic dynamicName = 'dynamic Dart';
 - `vm_snapshot_data` 虚拟机数据段 
 - `vm_snapshot_instr` 虚拟机指令段等产物 
 
+> **⚠️注意，1.7.8 之后的版本，Android 下的 Flutter 已经编译为纯 so 文件。**
+
 在 IOS 主要是 **App.framework** ，其内部也包含了 ` kDartVmSnapshotData` 、` kDartVmSnapshotInstructions`  、 `kDartIsolateSnapshotData` 、` kDartIsolateSnapshotInstructions`  四个部分。
 
 
