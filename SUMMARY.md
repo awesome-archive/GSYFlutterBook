@@ -38,6 +38,8 @@
 
 * [十七、实用技巧与填坑二](Flutter-17.md)
 
+* [十八、 神奇的ScrollPhysics与Simulation](Flutter-18.md)
+
 * [番外](FWREADME.md)
   
   * [全网最全 Flutter 与 ReactNative深入对比分析](qwzqdb.md)
