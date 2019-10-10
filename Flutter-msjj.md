@@ -231,7 +231,7 @@ Flutter 和 React Native 不同主要在于 **Flutter UI是直接通过 skia 渲
 
 - Flutter 中存在 `Widget` 、 `Element` 、`RenderObject` 、`Layer` 四棵树，其中 **`Widget` 与 `Element` 是一对多的关系** ，
 
-- `Element`  中持有`Widget` 和 `RenderObject` ， 而 **`Element` 与 `RenderObject` 是一一对应的关系** ，
+- `Element`  中持有`Widget` 和 `RenderObject` ， 而 **`Element` 与 `RenderObject` 是一一对应的关系（除去 `Element`  不存在 `RenderObject` 的情况，如 `ComponentElement` 是不具备 `RenderObject`)** ，
 
 - 当 `RenderObject` 的 `isRepaintBoundary` 为 `true` 时，那么个区域形成一个 `Layer`，所以**不是每个 `RenderObject` 都具有 `Layer` 的，因为这受 `isRepaintBoundary` 的影响。** 
 
