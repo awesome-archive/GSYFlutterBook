@@ -1,6 +1,6 @@
 ## 前言
 
-在如今的 Fultter 大潮下，本系列是让你看完会安心的文章。
+在如今的 Flutter 大潮下，本系列是让你看完会安心的文章。
 
 本系列将完整讲述：如何快速从0开发一个完整的 Flutter APP，配套高完成度  Flutter 开源项目 [GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter)，同时也会提供一些Flutter的开发细节技巧，并针对开发过程中可能遇到的问题进行填坑，之后深入源码和实战为你全面解析 Flutter。
 
