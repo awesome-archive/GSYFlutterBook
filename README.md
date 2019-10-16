@@ -5,6 +5,8 @@
 
 ### 本系列将完整讲述：如何快速从 0 开发一个完整的 Flutter APP，配套高完成度  Flutter 开源项目 [GSYGithubAppFlutter](https://github.com/CarGuo/gsy_github_app_flutter) 和 [独立多案例学习型项目](https://github.com/CarGuo/gsy_flutter_demo) ，同时会提供一些Flutter的开发细节技巧，之后深入源码和实战为你全面解析 Flutter 。
 
+### [如果克隆太慢，可尝试码云地址下载](https://gitee.com/CarGuo/GSYFlutterBook)
+
 ----
 
 - ### [在线阅读地址](https://guoshuyu.cn/home/wx/)
