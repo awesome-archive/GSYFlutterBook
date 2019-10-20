@@ -229,9 +229,9 @@ Zone.current.scheduleMicrotask((){
 
 Flutter 和 React Native 不同主要在于 **Flutter UI是直接通过 skia 渲染的 ，而 React Native 是将 js 中的控件转化为原生控件，通过原生去渲染的**  ，相关更多可查看：[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)。
 
-- Flutter 中存在 `Widget` 、 `Element` 、`RenderObject` 、`Layer` 四棵树，其中 **`Widget` 与 `Element` 是多对一的关系** ，
+- Flutter 中存在 `Widget` 、 `Element` 、`RenderObject` 、`Layer` 四棵树，其中 **`Widget` 与 `Element` 是一对多的关系** ，
 
-- `Element`  中持有`Widget` 和 `RenderObject` ， 而 **`Element` 与 `RenderObject` 是一一对应的关系** ，
+- `Element`  中持有`Widget` 和 `RenderObject` ， 而 **`Element` 与 `RenderObject` 是一一对应的关系（除去 `Element`  不存在 `RenderObject` 的情况，如 `ComponentElement` 是不具备 `RenderObject`)** ，
 
 - 当 `RenderObject` 的 `isRepaintBoundary` 为 `true` 时，那么个区域形成一个 `Layer`，所以**不是每个 `RenderObject` 都具有 `Layer` 的，因为这受 `isRepaintBoundary` 的影响。** 
 
@@ -364,9 +364,10 @@ Android 中 `Flutter` 默认启动时会在 `FlutterActivityDelegate.java ` 中�
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
-* 本文Demo ：https://github.com/CarGuo/state_manager_demo
-* 本文代码 ：https://github.com/CarGuo/GSYGithubAppFlutter
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 

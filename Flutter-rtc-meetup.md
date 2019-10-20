@@ -327,7 +327,6 @@ II、`UP` 的时候如果有多个，那么强制队列里第一个直接胜利�
 
 以 `Android` 的角度来说，从方便调试和解耦集成上，我们一般会以 `aar` 的形式集成混合开发，这里就会涉及到 `gradle` 打包的一个概念。
 
-
 1、如下代码所示，在项目中进行 `gradle` 脚本修改，组件化开发模式，用 `apk` 开发，用 `aar` 提供集成，正常修改 `gradle` 代码即可快速打包。
 
 ![](http://img.cdn.guoshuyu.cn/20190604_Flutter-rtc-meetup/image23)
@@ -350,6 +349,10 @@ II、`UP` 的时候如果有多个，那么强制队列里第一个直接胜利�
 所以这时候我们可以参考打包，修改我们的gradle脚本，利用 fat-aar 插件将本地 projcet 也打包的 aar 里。
 
 ![](http://img.cdn.guoshuyu.cn/20190604_Flutter-rtc-meetup/image27)
+
+
+
+> ## 官方未来将有 `Flutter build aar` 的方法可提供使用。
 
 3、混合开发的最大痛点是什么？
 
@@ -417,9 +420,11 @@ flutter 作为一个UI 框架，与平台无关，在web上利用的是dart2js�
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
-
 * RTC社区 ： https://rtcdeveloper.com
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 
 ![我们还会再见吗？](http://img.cdn.guoshuyu.cn/20190604_Flutter-rtc-meetup/image35)

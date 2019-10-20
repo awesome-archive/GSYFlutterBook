@@ -13,7 +13,7 @@
 > * [十、  深入图片加载流程](https://juejin.im/post/5cb1896ce51d456e63760449)
 > * [十一、全面深入理解Stream](https://juejin.im/post/5cc2acf86fb9a0321f042041) 
 > * [十二、全面深入理解状态管理设计](https://juejin.im/post/5cc816866fb9a03231209c7c) 
-> * [十三、全面深入触摸和滑动原理](https://juejin.im/editor/posts/5cd54839f265da03b2044c32) 
+> * [十三、全面深入触摸和滑动原理](https://juejin.im/post/5cd54839f265da03b2044c32) 
 > * [十四、混合开发打包 Android 篇](https://juejin.im/post/5cf527036fb9a07ed911acd8)
 
 
@@ -362,9 +362,11 @@ LayoutBuilder(
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
 * 本文Demo ：https://github.com/CarGuo/state_manager_demo
-* 完整项目 ：https://github.com/CarGuo/GSYGithubAppFlutter
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 

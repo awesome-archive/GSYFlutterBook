@@ -310,6 +310,8 @@ PaintingBinding.instance.imageCache.maximumSizeBytes= 50 << 20;
 
 其中 Android 的编译后二进制文件存在于 `data/data/包名/app_flutter/flutter_assets/`下。做过 Android 的应该知道，这个路径下是可以很简单更新的，所以你懂的 ￣ω￣=。
 
+> **⚠️注意，1.7.8 之后的版本，Android 下的 Flutter 已经编译为纯 so 文件。**
+
 IOS？据我了解，貌似动态库 framework 等引用是不能用热更新的，除非你不需要审核！
 
 
@@ -318,8 +320,10 @@ IOS？据我了解，貌似动态库 framework 等引用是不能用热更新的
 
 ### 资源推荐
 
-* Github ： [https://github.com/CarGuo](https://github.com/CarGuo)
-* 本文代码 ：[https://github.com/CarGuo/GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter)
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 

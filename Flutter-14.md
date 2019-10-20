@@ -14,7 +14,7 @@
 > * [十、  深入图片加载流程](https://juejin.im/post/5cb1896ce51d456e63760449)
 > * [十一、全面深入理解Stream](https://juejin.im/post/5cc2acf86fb9a0321f042041) 
 > * [十二、全面深入理解状态管理设计](https://juejin.im/post/5cc816866fb9a03231209c7c) 
-> * [十三、全面深入触摸和滑动原理](https://juejin.im/editor/posts/5cd54839f265da03b2044c32) 
+> * [十三、全面深入触摸和滑动原理](https://juejin.im/post/5cd54839f265da03b2044c32) 
 
 ## 一、前言
 
@@ -23,6 +23,8 @@
 但是混合开发会对 **打包、构建和启动等流程熟悉度要求较高**  ，同时遇到的问题也更多，以前我在 `React Native` 也写过类似的文章 ：[《从Android到React Native开发（四、打包流程解析和发布为Maven库）》](https://juejin.im/post/5b2116466fb9a01e3128359f) ，而这方面是有很多经验可以通用的，**所以适当的混开模式有利于避免一些问题，同时只有了解 `Flutter` 整体项目的构建思路，才有可能更舒适的躺坑。**
 
 > 额外唠叨一句，跨平台的意义更多在于解决多端逻辑的统一 ，至少避免了逻辑重复实现，所以企业刚开始，一般会选择一些轻量级业务进行尝试。
+>
+> ### 官方未来将有 `Flutter build aar` 的方法可提供使用。
 
 
 ## 二、打包
@@ -92,7 +94,7 @@
 ![](http://img.cdn.guoshuyu.cn/20190604_Flutter-14/image5)
 
 > 完整版可见 [flutter_app_lib](https://github.com/CarGuo/flutter_app_lib) 。
-   
+
 ## 四、堆栈
 
 最后需要说的问题就是堆栈了。
@@ -117,9 +119,11 @@
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
 * 本文Demo ：https://github.com/CarGuo/flutter_app_lib 
-* 推荐完整代码 ：https://github.com/CarGuo/GSYGithubAppFlutter
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 
