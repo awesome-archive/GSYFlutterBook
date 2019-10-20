@@ -17,5 +17,6 @@
 * [十四、混合开发打包 Android 篇](Flutter-14.md)
 * [十五、全面理解State与Provider](Flutter-15.md)
 * [番外]()
+  * [Flutter 跨平台框架应用实战-2019极光开发者大会](Flutter-jg-meet.md)
   * [Flutter 面试知识点集锦](Flutter-msjj.md)
   * [Flutter 开发实战与前景展望 - RTC Dev Meetup](Flutter-rtc-meetup.md)
