@@ -60,7 +60,7 @@
 
 **1、开发成本**
 
-我直接学 `Java`/`Kotlin` 、`Object-C`/`Switf` 、`JavaScript`/`CSS` 去写各平台的代码可以吗？
+我直接学 `Java`/`Kotlin` 、`Object-C`/`Swift` 、`JavaScript`/`CSS` 去写各平台的代码可以吗？
 
 **当然可以，这样的性能肯定最有保证，但是跨平台的主要优势在于代码逻辑的复用，减少各平台同一逻辑，因人而异的开发成本。**
 
