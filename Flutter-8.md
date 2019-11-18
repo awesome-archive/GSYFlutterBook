@@ -1,13 +1,10 @@
 作为系列文章的第八篇，本篇是主要讲述 Flutter 开发过程中的实用技巧，让你少走弯路少掉坑，全篇属于很干的干货总结，以实用为主，算是在深入原理过程中穿插的实用篇章。
 
-> 前文：
-> * [一、Dart语言和Flutter基础](https://juejin.im/post/5b631d326fb9a04fce524db2)
-> * [二、 快速开发实战篇](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-> * [三、 打包与填坑篇](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-> * [四、 Redux、主题、国际化](https://juejin.im/post/5b79767ff265da435450a873)
-> * [五、 深入探索](https://juejin.im/post/5bc450dff265da0a951f032b)
-> * [六、 深入Widget原理](https://juejin.im/post/5c7e853151882549664b0543)
-> * [七、 深入布局原理](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
+## 文章汇总地址：
+
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 #### 1、Text 的 TextOverflow.ellipsis 不生效
 
@@ -15,7 +12,7 @@
 
 其实大部分时候，这是 `Text` 内部的  `RenderParagraph` 在判断 `final bool didOverflowWidth = size.width < textSize.width;` 时， *size.width* 和 *textSize.width* 是相等导致的。
 
-所以你需要给  `Text`  设置一个 `Container` 之类的去约束它的大小，或者是 `Row` 中通过 `Expanded` +  `Container` 去约束你的 `Text`。
+所以你需要给  `Text`  设置一个 `Container` 之类的去约束它的大小，或者是 `Row` 中通过 `Expanded` +  `Container` 去约束你的 `Text`，如果不知道于应该多大，可以通过 `LayoutBuilder` 设置。
 
 ![请无视图片](http://img.cdn.guoshuyu.cn/20190604_Flutter-8/image1)
 
@@ -151,35 +148,6 @@ Flutter 官方已经为你提供了 [android_intent](https://github.com/flutter/
 * [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp ) 
 * [GSYGithubAppWeex](https://github.com/CarGuo/GSYGithubAppWeex)
 
-##### 文章
 
-
-[《Flutter完整开发实战详解(一、Dart语言和Flutter基础)》](https://juejin.im/post/5b631d326fb9a04fce524db2)
-
-[《Flutter完整开发实战详解(二、 快速开发实战篇)》](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-
-[《Flutter完整开发实战详解(三、 打包与填坑篇)》](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-
-[《Flutter完整开发实战详解(四、Redux、主题、国际化)》](https://juejin.im/post/5b79767ff265da435450a873)
-
-[《Flutter完整开发实战详解(五、 深入探索)》](https://juejin.im/post/5bc450dff265da0a951f032b)
-
-[《Flutter完整开发实战详解(六、 深入Widget原理)》](https://juejin.im/post/5c7e853151882549664b0543)
-
-[《Flutter完整开发实战详解(七、 深入布局原理)》](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-
-[《Flutter完整开发实战详解(八、 实用技巧与填坑)》](https://juejin.im/post/5c9e328251882567b91e1cfb)
-
-[《Flutter完整开发实战详解(九、 深入绘制原理)》](https://juejin.im/post/5ca0e0aff265da309728659a)
-
-[《Flutter完整开发实战详解(十、 深入图片加载流程)》](https://juejin.im/post/5cb1896ce51d456e63760449)
-
-[《Flutter完整开发实战详解(十一、全面深入理解Stream)》](https://juejin.im/post/5cc2acf86fb9a0321f042041)
-
-[《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
-
-[《React Native 的未来与React Hooks》](https://juejin.im/post/5cb34404f265da0384127fcd)
 
 ![我们还会再见吗？](http://img.cdn.guoshuyu.cn/20190604_Flutter-8/image4)

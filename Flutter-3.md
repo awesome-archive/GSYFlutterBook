@@ -1,12 +1,15 @@
-作为系列文章的第三篇，继[篇章一](https://juejin.im/post/5b631d326fb9a04fce524db2)和[篇章二](https://juejin.im/post/5b685a2a5188251ac22b71c0)之后，本篇将为你着重展示：**Flutter开发过程的打包流程、APP包对比、细节技巧与问题处理**。本篇主要描述的Flutter的打包、在开发过程中遇到的各类问题与细节，算是对上两篇的补全。
+作为系列文章的第三篇，本篇将为你着重展示：**Flutter开发过程的打包流程、APP包对比、细节技巧与问题处理**，本篇主要描述的 Flutter 的打包、在开发过程中遇到的各类问题与细节，算是对上两篇的补全。
 
+## 文章汇总地址：
 
->&emsp;友情提示：本文所有代码均在 [**GSYGithubAppFlutter**](https://github.com/CarGuo/GSYGithubAppFlutter) ，要不试试？(◐‿◑)。
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 
 ## 一、打包
 
-首先我们先看结果，如下表所示，是 **Flutter 与 React Native 、IOS 与 Android 的纵向与横向对比** 。
+首先我们先看结果，如下表所示，是 **Flutter 与 React Native 、iOS 与 Android 的纵向与横向对比** 。
 
 | 项目          | IOS |Android|
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -20,16 +23,16 @@
 
 * 对上述内容有兴趣的可以看看[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)。
 
-### 1、Android打包
+### 1、Android 打包
 
 ![I'm Android](http://img.cdn.guoshuyu.cn/20190604_Flutter-3/image5)
 
-在Android的打包上，笔者基本没有遇到什么问题，在`android/app/build.grade`文件下，配置`applicationId`、`versionCode`、`versionName` 和签名信息，最后通过 `flutter build app` 即可完成编译。编程成功的包在 `build/app/outputs/apk/release` 下。
+在 Android 的打包上，笔者基本没有遇到什么问题，在`android/app/build.grade`文件下，配置`applicationId`、`versionCode`、`versionName` 和签名信息，最后通过 `flutter build app` 即可完成编译。编程成功的包在 `build/app/outputs/apk/release` 下。
 
 
-### 2、IOS打包与真机运行
+### 2、iOS 打包与真机运行
 
-在IOS的打包上，笔者倒是经历了一波曲折，这里主要讲笔者遇到的问题。
+在 iOS 的打包上，笔者倒是经历了一波曲折，这里主要讲笔者遇到的问题。
 
 首先你需要一个 apple 开发者账号，然后创建证书、创建AppId，创建配置文件、最后在`info.plist`文件下输入相关信息，更详细可看官方的[《发布的IOS版APP》](https://flutterchina.club/ios-release/)的教程。
 
@@ -50,7 +53,7 @@
 #import <url_launcher/UrlLauncherPlugin.h>
 ```
 
-通过 Android Studio 运行到 IOS 模拟器时没有任何问题，说明这不是第三方包问题。通过查找问题发现，在 IOS 执行  `Archive`  之前，需要执行  `flutter build release`，如下图在命令执行之后，Pod 的执行目录会发现改变，并且生成打包需要的文件。（*ps 普通运行时自动又会修改回来*）
+通过 Android Studio 运行到 iOS 模拟器时没有任何问题，说明这不是第三方包问题。通过查找问题发现，在 iOS 执行  `Archive`  之前，需要执行  `flutter build release`，如下图在命令执行之后，Pod 的执行目录会发现改变，并且生成打包需要的文件。（*ps 普通运行时自动又会修改回来*）
 
 
 ![文件变化](http://img.cdn.guoshuyu.cn/20190604_Flutter-3/image6)
@@ -72,7 +75,7 @@ drop Pods/Pods.xcodeproj into Runner/Pods.
 "Valid architectures" to only "arm64" (I removed armv7 armv7s) 
 ```
 
-最后终于成功打包，心累啊(///▽///)。同时如果希望直接在真机上调试 Flutter，可以参考 :[《Flutter基础—开发环境与入门》](https://blog.csdn.net/hekaiyou/article/details/52874796?locationNum=4&fps=1) 下的 **IOS 真机**部分。
+最后终于成功打包，心累啊(///▽///)。同时如果希望直接在真机上调试 Flutter，可以参考 :[《Flutter基础—开发环境与入门》](https://blog.csdn.net/hekaiyou/article/details/52874796?locationNum=4&fps=1) 下的 **iOS 真机**部分。
 
 
 
@@ -264,16 +267,6 @@ Flutter 在 Debug 和 Release 下分别是 *JIT* 和 *AOT* 模式，而在 DEBUG
 
 * [GSYGithubAppWeex](https://github.com/CarGuo/GSYGithubAppWeex)
 * [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp ) 
-
-##### 文章
-
-[《Flutter完整开发实战详解(一、Dart语言和Flutter基础)》](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-
-[《Flutter完整开发实战详解(二、 快速开发实战篇)》](https://juejin.im/post/5b631d326fb9a04fce524db2)
-
-[《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
 
 
 ![我们还会再见吗？](http://img.cdn.guoshuyu.cn/20190604_Flutter-3/image9)

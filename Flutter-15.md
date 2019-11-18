@@ -1,20 +1,10 @@
 本篇将带你深入理解 Flutter 中 State 的工作机制，并通过对状态管理框架 **Provider** 解析加深理解，看完这一篇你将更轻松的理解你的 “State 大后宫” 。
 
-> 前文：
-> * [一、  Dart语言和Flutter基础](https://juejin.im/post/5b631d326fb9a04fce524db2)
-> * [二、  快速开发实战篇](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-> * [三、  打包与填坑篇](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-> * [四、  Redux、主题、国际化](https://juejin.im/post/5b79767ff265da435450a873)
-> * [五、  深入探索](https://juejin.im/post/5bc450dff265da0a951f032b)
-> * [六、  深入Widget原理](https://juejin.im/post/5c7e853151882549664b0543)
-> * [七、  深入布局原理](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-> * [八、  实用技巧与填坑](https://juejin.im/post/5c9e328251882567b91e1cfb)
-> * [九、  深入绘制原理](https://juejin.im/post/5ca0e0aff265da309728659a) 
-> * [十、  深入图片加载流程](https://juejin.im/post/5cb1896ce51d456e63760449)
-> * [十一、全面深入理解Stream](https://juejin.im/post/5cc2acf86fb9a0321f042041) 
-> * [十二、全面深入理解状态管理设计](https://juejin.im/post/5cc816866fb9a03231209c7c) 
-> * [十三、全面深入触摸和滑动原理](https://juejin.im/post/5cd54839f265da03b2044c32) 
-> * [十四、混合开发打包 Android 篇](https://juejin.im/post/5cf527036fb9a07ed911acd8)
+## 文章汇总地址：
+
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 
 ```!

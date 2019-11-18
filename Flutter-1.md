@@ -2,13 +2,16 @@
 
 在如今的 Flutter 大潮下，本系列是让你看完会安心的文章。
 
-本系列将完整讲述：如何快速从0开发一个完整的 Flutter APP，配套高完成度  Flutter 开源项目 [GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter)，同时也会提供一些Flutter的开发细节技巧，并针对开发过程中可能遇到的问题进行填坑，之后深入源码和实战为你全面解析 Flutter。
+本系列将完整讲述：如何入门 Flutter 开发，如何快速从 0 开发一个完整的 Flutter APP，配套高完成度  Flutter 开源项目 [GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter)，提供 Flutter 的开发技巧和问题处理，之后深入源码和实战为你全面解析 Flutter。
 
->笔者相继开发过 *Flutter、React Native 、Weex* 等主流跨平台框架项目，其中 *Flutter* 的跨平台兼容性无疑最好。前期开发调试完全在 Android 端进行的情况下，第一次在 IOS 平台运行居然没有任何错误，并且还没出现UI兼容问题，相信对于经历过跨平台开发的猿们而言，这是多么的不可思议画面。并且 Fluuter 的 HotLoad 相比较其他两个平台，也是丝滑的让人无法相信。吹爆了！
+> 笔者相继开发过 Flutter、React Native 、Weex 等主流跨平台框架项目，其中 Flutter 的跨平台兼容性无疑最好。前期开发调试完全在 Android 端进行的情况下，第一次在 iOS 平台运行居然没有任何错误，并且还没出现 UI 兼容问题，相信对于经历过跨平台开发的猿们而言，是多么的不可思议画面，并且 Fluuter 的 HotLoad 相比较其他两个平台，也是丝滑的让人无法相信，吹爆了！
+
+## 文章汇总地址：
+
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
 >
->这些特点其实这得益于Flutter Engine 和 Skia ，如果有兴趣的可以看看笔者之前的[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)。
->
->好了，感慨那么多，让我们进入正题吧。
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
+
 
 ## 一、基础篇
 
@@ -18,22 +21,21 @@
 ### 1、环境搭建
 
 Flutter 的环境搭建十分省心，特别对应 Android 开发者而言，只是在 Android Stuido
-上安装插件，并下载flutter Sdk到本地，配置在环境变量即可，其实中文网的[搭建Futter开发环境](https://flutterchina.club/get-started/install/) 已经很贴心详细，从平台指引开始安装基本都不会遇到问题。
+上安装插件，并到 GitHub Clone Flutter 项目到本地之后执行 flutter doctor 命令就可以完成配置，其实中文网的[搭建Futter开发环境](https://flutterchina.club/get-started/install/) 已经很贴心详细，从平台指引开始安装基本都不会遇到问题。
 
-这里主要是需要注意，因为某些不可抗力的原因，国内的用户有时候需要配置 Flutter 的代理，并且国内用户在搜索 Flutter 第三方包时，也是在 https://pub.flutter-io.cn 内查找，下方是需要配置到环境变量的地址。*（ps Android Studio下运行 IOS 也是蛮有意思的(◐‿◑)﻿）*
+这里主要是需要注意，因为某些不可抗力的原因，国内的用户有时候需要配置 Flutter 的代理，并且国内用户在搜索 Flutter 第三方包时，也是在 https://pub.flutter-io.cn 内查找，下方是需要配置到环境变量的地址。*（ps Android Studio下运行 IOS 也是蛮有意思的感觉）*
 
 ```
-///win直接配置到环境编辑即可，mac配置到bash_profile
+///win直接配置到环境编辑即可，mac配置到bash_profile或者zsh
 export PUB_HOSTED_URL=https://pub.flutter-io.cn //国内用户需要设置
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn //国内用户需要设置
 ```
 
 ###  2、Dart语言下的Flutter
 
-在跨平台开领域被 JS 一统天下的今天，Dart 语言的出现无疑是一股清流。作为后来者，Dart语言有着不少Java、kotlin 和 JS 的影子，所以对于 Android 原生开发者、前端开发者而言无疑是非常友好的。
+在跨平台开领域被 JS 一统天下的今天，Dart 语言的出现无疑是一股清流。作为后来者，Dart语言有着不少 Java、Kotlin 和 JS 的影子，所以对于 Android 原生开发者、前端开发者而言无疑是非常友好。
 
-官方也提供了包括 IOS 、React Native 等开发者迁移到 Flutter 上的文档，所以请不要担心，Dart语言不会是你掌握 Flutter 的门槛，甚至作为开发者，就算你不懂 Dart 也可以看着代码摸索。
-
+官方也提供了包括 iOS 、React Native 等开发者迁移到 Flutter 上的文档，所以请不要担心，Dart 语言不会是你掌握 Flutter 的门槛，甚至作为开发者，就算你不懂 Dart 也可以看着代码摸索。
 
 Come on，下面主要通过对比，简单讲述下 Dart 的一些特性，主要涉及的是 Flutter 下使用。
 
@@ -41,23 +43,23 @@ Come on，下面主要通过对比，简单讲述下 Dart 的一些特性，主�
 
 - var 可以定义变量，如 `var tag = "666"` ，这和 JS 、 Kotlin 等语言类似，同时 Dart 也算半个动态类型语言，同时支持闭包。
 
-- `Dart` 属于是**强类型语言** ，但可以用 `var`  来声明变量，`Dart` 会**自推导出数据类型**，`var` 实际上是编译期的“语法糖”。**`dynamic` 表示动态类型**， 被编译后，实际是一个 `object` 类型，在编译期间不进行任何的类型检查，而是在运行期进行类型检查。
+- `Dart` 属于是**强类型语言** ，但可以用 `var`  来声明变量，`Dart` 会**自推导出数据类型**，所以 `var` 实际上是编译期的“语法糖”。**`dynamic` 表示动态类型**， 被编译后，实际是一个 `object` 类型，在编译期间不进行任何的类型检查，而是在运行期进行类型检查。
 
-- Dart 中 number 类型分为 `int` 和 `double` ，其中 java 中的 long 对应的也是 Dart 中的 int 类型。Dart 中没有 float 类型。
+- Dart 中 number 类型分为 `int` 和 `double` ，其中 java 中的 long 对应的也是 Dart 中的 int 类型，Dart 中没有 float 类型。
 
 - Dart 下只有 bool 型可以用于 if 等判断，不同于 JS 这种使用方式是不合法的 `var g = "null"; if(g){}` 。
 
-- DART中，switch 支持 String 类型。
+- Dart 中，switch 支持 String 类型。
 
 #### 2.2、变量
 
-- Dart 不需要给变量设置 `setter getter  `   方法， 这和 kotlin 等类似。Dart 中所有的基础类型、类等都继承 Object ，默认值是 NULL， 自带 getter 和 setter ，而如果是 final 或者 const 的话，那么它只有一个 getter 方法。
+- Dart 不需要给变量设置 `setter getter`  方法， 这和 kotlin 等语言类似。Dart 中所有的基础类型、类等都继承 Object ，默认值是 NULL， 自带 getter 和 setter ，而如果是 final 或者 const 的话，那么它只有一个 getter 方法。
 
-- Dart 中 final 和 const 表示常量，比如 `final name = 'GSY'; const value= 1000000; ` 同时 `static const` 组合代表了静态常量。其中 const 的值在编译期确定，final 的值要到运行时才确定。*（ps Flutter 在 Release 下是 AOT 模式。）*
+- Dart 中 final 和 const 表示常量，比如 `final name = 'GSY'; const value= 1000000; ` 同时 `static const` 组合代表了静态常量，其中 const 的值在编译期确定，final 的值要到运行时才确定。
 
-- Dart 下的数值，在作为字符串使用时，是需要显式指定的。比如：`int i = 0; print("aaaa" + i);` 这样并不支持，需要 `print("aaaa" + i.toString());` 这样使用。这和 Java 与 JS 存在差异。**所以在使用动态类型时，需要注意不要把 number 类型当做 String 使用。**
+- Dart 下的数值，在作为字符串使用时，是需要显式指定的。比如：`int i = 0; print("aaaa" + i);` 这样并不支持，需要 `print("aaaa" + i.toString());` 这样使用，这和 Java 与 JS 存在差异，**所以在使用动态类型时，需要注意不要把 number 类型当做 String 使用。**
 
-- DART 中数组等于列表，所以 `var list = [];` 和 `List list = new List()` 可以简单看做一样。
+- Dart  中数组等于列表，所以 `var list = [];` 和 `List list = new List()` 可以简单看做一样。
 
 #### 2.3、方法
 
@@ -67,7 +69,7 @@ Come on，下面主要通过对比，简单讲述下 Dart 的一些特性，主�
 
 - Dart 不像 Java ，没有关键词 public 、private 等修饰符，` _ `下横向直接代表 private ，但是有 `@protected` 注解。
 
-- Dart 中多构造函数，可以通过如下代码实现的。默认构造方法只能有一个，而通过`Model.empty()` 方法可以创建一个空参数的类，其实方法名称随你喜欢。而变量初始化值时，只需要通过 `this.name` 在构造方法中指定即可：
+- Dart 中多构造函数，可以通过如下代码实现的。默认构造方法只能有一个，而通过`Model.empty()` 方法可以创建一个空参数的类，其实方法名称随你喜欢，而变量初始化值时，只需要通过 `this.name` 在构造方法中指定即可：
 
 ```
 class ModelA {
@@ -88,7 +90,7 @@ class ModelA {
 
 #### 2.4、Flutter
 
-Flutter 中支持 `async`/`await` 。这一点和 ES7 很像，**如下代码所示**，只是定义的位置不同。同时异步操作也和 ES6 中的`Promise ` 很像，只是 Flutter 中返回的是 `Future` 对象，通过 `then` 可以执行下一步。如果返回的还是 `Future` 便可以 `then().then.()` 的流式操作了 。
+Flutter 中支持 `async`/`await` ，**如下代码所示**， `async`/`await` 其实只是语法糖，最终会编译为 Flutter 中返回 `Future` 对象，之后通过 `then` 可以执行下一步。如果返回的还是 `Future` 便可以 `then().then.()` 的流式操作了 。
 
 ```
   ///模拟等待两秒，返回OK
@@ -113,7 +115,7 @@ Flutter 中支持 `async`/`await` 。这一点和 ES7 很像，**如下代码所
   }
 ```
 
-- Flutter 中 `setState`  很有 React Native 的既视感，Flutter 中也是通过 state 跨帧实现管理数据状态的，这个后面会详细讲到。
+- Flutter 中 `setState`  很有 React Native 的既视感，Flutter 中也是通过 State 跨帧实现管理数据状态的，这个后面会详细讲到。
 
 - Flutter 中一切皆 Widget 呈现，通过 `build`方法返回 Widget，这也是和 React Native 中，通过 `render` 函数返回需要渲染的 component 一样的模式。
 - Stream 对应的 async* / yield 也可以用于异步，这个后面会说到。
@@ -121,11 +123,11 @@ Flutter 中支持 `async`/`await` 。这一点和 ES7 很像，**如下代码所
 
 ###  3、Flutter Widget
 
-在 Flutter 中，一切的显示都是 Widget 。Widget 是一切的基础，作为响应式的渲染，类似 MVVM 的实现机制。
+在 Flutter 中一切的显示都是 Widget ，Widget 是一切的基础，利用响应式模式进行渲染。
 
-我们可以通过修改数据，再用`setState` 设置数据，Flutter 会自动通过绑定的数据更新 Widget 。 **所以你需要做的就是实现 Widget 界面，并且和数据绑定起来**。
+我们可以通过修改数据，再用`setState` 设置数据，Flutter 会自动通过绑定的数据更新 Widget ， **所以你需要做的就是实现 Widget 界面，并且和数据绑定起来**。
 
-Widget 分为 *有状态* 和 *无状态* 两种，在 Flutter 中每个页面都是一帧，无状态就是保持在那一帧，而有状态的 Widget 当数据更新时，其实是绘制了新的 Widget，只是 State 实现了跨帧的数据同步保存。
+Widget 分为 *有状态* 和 *无状态* 两种，在 Flutter 中每个页面都是一帧，无状态就是保持在那一帧，而有状态的 Widget 当数据更新时，其实是创建了新的 Widget，只是 State 实现了跨帧的数据同步保存。
 
 &emsp;
 
@@ -139,12 +141,10 @@ Widget 分为 *有状态* 和 *无状态* 两种，在 Flutter 中每个页面�
 
 #### 3.1、无状态StatelessWidget
 
-直接进入主题，下方代码是无状态 Widget 的简单实现。
-
-**继承 StatelessWidget，通过 `build ` 方法返回一个布局好的控件**。可能现在你还对 Flutter 的内置控件不熟悉，but **Don't worry , take it easy** ，后面我们就会详细介绍。这里你只需要知道，一个无状态的 Widget 就是这么简单。
+直接进入主题，如下下代码所示是无状态 Widget 的简单实现。**继承 StatelessWidget，通过 `build ` 方法返回一个布局好的控件**。可能现在你还对 Flutter 的内置控件不熟悉，but **Don't worry , take it easy** ，后面我们就会详细介绍这里你只需要知道，一个无状态的 Widget 就是这么简单。
 
 
-Widget 和 Widget 之间通过 `  child:  ` 进行嵌套。其中有的 Widget 只能有一个 child，比如下方的 `Container` ；有的 Widget 可以多个 child ，也就是`children:`，比如` Column 布局。下方代码便是 Container Widget 嵌套了 Text Widget。
+Widget 和 Widget 之间通过 `  child:  ` 进行嵌套。其中有的 Widget 只能有一个 child，比如下方的 `Container` ；有的 Widget 可以多个 child ，也就是`children`，比如` Column 布局，下方代码便是 Container Widget 嵌套了 Text Widget。
 
 ```
 import 'package:flutter/material.dart';
@@ -172,9 +172,7 @@ class DEMOWidget extends StatelessWidget {
 
 #### 3.2、有状态StatefulWidget
 
-继续直插主题，如下代码，是有状态的widget的简单实现。
-
-你需要创建管理的是主要是 `State` ， 通过 State 的 ` build` 方法去构建控件。在 State 中，你可以动态改变数据，这类似 MVVM 实现，在 `setState ` 之后，改变的数据会触发 Widget 重新构建刷新。而下方代码中，是通过延两秒之后，让文本显示为 *"这就变了数值"*。
+继续直插主题，如下代码，是有状态的widget的简单实现，你需要创建管理的是主要是 `State` ， 通过 State 的 ` build` 方法去构建控件。在 State 中，你可以动态改变数据，在 `setState ` 之后，改变的数据会触发 Widget 重新构建刷新，而下方代码中，是通过延两秒之后，让文本显示为 *"这就变了数值"*。
 
 
 如下代码还可以看出，State 中主要的声明周期有 ：
@@ -258,7 +256,7 @@ Flutter 中拥有需要将近30种内置的 [布局Widget](https://flutterchina.
 | Expanded  | 只有一个子 Widget。在  Column 和  Row 中充满。                   |
 | ListView  | 可以有多个子 Widget。自己意会吧。                                    |
 
-* Container ：最常用的默认布局！只能包含一个`child:`，支持配置 *padding,margin,color,宽高,decoration（一般配置边框和阴影）等配置*，在 Flutter 中，不是所有的控件都有 *宽高、padding、margin、color* 等属性，所以才会有 Padding、Center 等 Widget 的存在。
+* Container ：最常用的默认控件，但是实际上它是由多个内置控件组成的模版，只能包含一个`child`，支持 *padding,margin,color,宽高,decoration（一般配置边框和阴影）等配置*，在 Flutter 中，不是所有的控件都有 *宽高、padding、margin、color* 等属性，所以才会有 Padding、Center 等 Widget 的存在。
 ```
     new Container(
         ///四周10大小的maring
@@ -287,7 +285,7 @@ mainAxisSize: MainAxisSize.max,
 crossAxisAlignment :CrossAxisAlignment.center,
 ```
 
-* Expanded 在 Column 和  Row 中代表着平均充满，当有两个存在的时候默认均分充满。同时页可以设置 `flex` 属性决定比例。
+* Expanded 在 Column 和  Row 中代表着平均充满的作用，当有两个存在的时候默认均分充满。同时页可以设置 `flex` 属性决定比例。
 
 ```
     new Column(
@@ -304,7 +302,7 @@ crossAxisAlignment :CrossAxisAlignment.center,
       ],
     );
 ```
-接下来我们来写一个复杂一些的控件。首先我们创建一个私有方法`_getBottomItem `，返回一个 `Expanded Widget`，因为后面我们需要将这个方法返回的 Widget 在 Row 下平均充满。
+接下来我们来写一个复杂一些的控件，首先我们创建一个私有方法`_getBottomItem `，返回一个 `Expanded Widget`，因为后面我们需要将这个方法返回的 Widget 在 Row 下平均充满。
 
 如代码中注释，布局内主要是现实一个居中的Icon图标和文本，中间间隔5.0的 padding：
 
@@ -354,7 +352,7 @@ crossAxisAlignment :CrossAxisAlignment.center,
 ![item效果](http://img.cdn.guoshuyu.cn/20190604_Flutter-1/image1)
 
 
-接着我们把上方的方法，放到新的布局里。如下流程和代码：
+接着我们把上方的方法，放到新的布局里，如下流程和代码：
 
 * 首先是 `Container `包含了` Card`，用于快速简单的实现圆角和阴影。
 * 然后接下来包含了`FlatButton`实现了点击，通过Padding实现了边距。
@@ -416,7 +414,7 @@ Flutter 中，你的布局很多时候就是这么一层一层嵌套出来的，
 
 ###  5、Flutter 页面
 
-Flutter 中除了布局的 Widget，还有交互显示的 Widget 和完整页面呈现的Widget。其中常见的有 *MaterialApp、Scaffold、Appbar、Text、Image、FlatButton*等。下面简单介绍这些 Wdiget，并完成一个页面。
+Flutter 中除了布局的 Widget，还有交互显示的 Widget 和完整页面呈现的Widget，其中常见的有 *MaterialApp、Scaffold、Appbar、Text、Image、FlatButton*等，下面简单介绍这些 Wdiget，并完成一个页面。
 
 
 | 类型          | 作用特点                                     |
@@ -433,7 +431,7 @@ Flutter 中除了布局的 Widget，还有交互显示的 Widget 和完整页面
 那么再次直插主题实现一个简单完整的页面试试。如下方代码：
 
 * 首先我们创建一个StatefulWidget：`DemoPage `。
-* 然后在 _DemoPageState中，通过`build`创建了一个`Scaffold `。
+* 然后在` _DemoPageState` 中，通过`build`创建了一个`Scaffold `。
 * Scaffold内包含了一个`AppBar`和一个`ListView`。
 * AppBar类似标题了区域，其中设置了 `title `为 Text Widget。
 * body是`ListView`,返回了20个之前我们创建过的 DemoItem Widget。
@@ -511,13 +509,7 @@ class DemoApp extends StatelessWidget {
 
 *  [本文相关 ：GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter)
 * [GSYGithubAppWeex](https://github.com/CarGuo/GSYGithubAppWeex)
-* [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp ) 
-
-##### 文章
-
-[《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
+* [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp )
 
 
 ![](http://img.cdn.guoshuyu.cn/20190604_Flutter-1/image4)

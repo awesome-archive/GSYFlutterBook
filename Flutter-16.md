@@ -1,22 +1,10 @@
 本篇将解析 Flutter 中自定义布局的原理，并带你深入实战自定义布局的流程，利用两种自定义布局的实现方式，完成如下图所示的界面效果，看完这一篇你将可以更轻松的对 Flutter 为所欲为。
 
+## 文章汇总地址：
 
-> 前文：
-> * [一、  Dart语言和Flutter基础](https://juejin.im/post/5b631d326fb9a04fce524db2)
-> * [二、  快速开发实战篇](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-> * [三、  打包与填坑篇](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-> * [四、  Redux、主题、国际化](https://juejin.im/post/5b79767ff265da435450a873)
-> * [五、  深入探索](https://juejin.im/post/5bc450dff265da0a951f032b)
-> * [六、  深入Widget原理](https://juejin.im/post/5c7e853151882549664b0543)
-> * [七、  深入布局原理](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-> * [八、  实用技巧与填坑](https://juejin.im/post/5c9e328251882567b91e1cfb)
-> * [九、  深入绘制原理](https://juejin.im/post/5ca0e0aff265da309728659a) 
-> * [十、  深入图片加载流程](https://juejin.im/post/5cb1896ce51d456e63760449)
-> * [十一、全面深入理解Stream](https://juejin.im/post/5cc2acf86fb9a0321f042041) 
-> * [十二、全面深入理解状态管理设计](https://juejin.im/post/5cc816866fb9a03231209c7c) 
-> * [十三、全面深入触摸和滑动原理](https://juejin.im/post/5cd54839f265da03b2044c32) 
-> * [十四、混合开发打包 Android 篇](https://juejin.im/post/5cf527036fb9a07ed911acd8)
-> * [十五、全面理解State与Provider](https://juejin.im/post/5d0634c7f265da1b91639232)
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 ![](http://img.cdn.guoshuyu.cn/20190702_Flutter-16/image1)
 
@@ -416,11 +404,6 @@ class CircleLayoutDelegate extends MultiChildLayoutDelegate {
 * 开源 React Native 项目：https://github.com/CarGuo/GSYGithubApp
 
 
-##### 文章
-
-[《Flutter完整开发实战详解系列》](https://juejin.im/user/582aca2ba22b9d006b59ae68/posts)
-
-[《移动端跨平台开发的深度解析》](https://www.jianshu.com/p/7e0bd4708ba7)
 
 
 ![](http://img.cdn.guoshuyu.cn/20190702_Flutter-16/image5)

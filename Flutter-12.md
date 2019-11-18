@@ -1,18 +1,10 @@
 作为系列文章的第十二篇，本篇将通过 scope_model 、 BloC 设计模式、flutter_redux 、 fish_redux 来全面深入分析， Flutter 中大家最为关心的状态管理机制，理解各大框架中如何设计实现状态管理，从而选出你最为合适的 state “大管家”。
 
+## 文章汇总地址：
 
-> 前文：
-> * [一、  Dart语言和Flutter基础](https://juejin.im/post/5b631d326fb9a04fce524db2)
-> * [二、  快速开发实战篇](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-> * [三、  打包与填坑篇](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-> * [四、  Redux、主题、国际化](https://juejin.im/post/5b79767ff265da435450a873)
-> * [五、  深入探索](https://juejin.im/post/5bc450dff265da0a951f032b)
-> * [六、  深入Widget原理](https://juejin.im/post/5c7e853151882549664b0543)
-> * [七、  深入布局原理](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-> * [八、  实用技巧与填坑](https://juejin.im/post/5c9e328251882567b91e1cfb)
-> * [九、  深入绘制原理](https://juejin.im/post/5ca0e0aff265da309728659a) 
-> * [十、  深入图片加载流程](https://juejin.im/post/5cb1896ce51d456e63760449)
-> * [十一、全面深入理解Stream](https://juejin.im/post/5cc2acf86fb9a0321f042041) 
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 
 在所有 **响应式编程** 中，状态管理一直老生常谈的话题，而在 Flutter 中，目前主流的有 `scope_model` 、`BloC 设计模式` 、`flutter_redux` 、`fish_redux` 等四种设计，它们的 *复杂度* 和 *上手难度* 是逐步递增的，但同时 **可拓展性** 、**解耦度** 和 **复用能力** 也逐步提升。
@@ -397,35 +389,5 @@ Widget buildView(CountState state, Dispatch dispatch, ViewService viewService) {
 * [GSYGithubApp Flutter](https://github.com/CarGuo/GSYGithubAppFlutter ) 
 * [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp ) 
 * [GSYGithubAppWeex](https://github.com/CarGuo/GSYGithubAppWeex)
-
-##### 文章
-
-[《Flutter完整开发实战详解(一、Dart语言和Flutter基础)》](https://juejin.im/post/5b631d326fb9a04fce524db2)
-
-[《Flutter完整开发实战详解(二、 快速开发实战篇)》](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-
-[《Flutter完整开发实战详解(三、 打包与填坑篇)》](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-
-[《Flutter完整开发实战详解(四、Redux、主题、国际化)》](https://juejin.im/post/5b79767ff265da435450a873)
-
-[《Flutter完整开发实战详解(五、 深入探索)》](https://juejin.im/post/5bc450dff265da0a951f032b)
-
-[《Flutter完整开发实战详解(六、 深入Widget原理)》](https://juejin.im/post/5c7e853151882549664b0543)
-
-[《Flutter完整开发实战详解(七、 深入布局原理)》](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-
-[《Flutter完整开发实战详解(八、 实用技巧与填坑)》](https://juejin.im/post/5c9e328251882567b91e1cfb)
-
-[《Flutter完整开发实战详解(九、 深入绘制原理)》](https://juejin.im/post/5ca0e0aff265da309728659a)
-
-[《Flutter完整开发实战详解(十、 深入图片加载流程)》](https://juejin.im/post/5cb1896ce51d456e63760449)
-
-[《Flutter完整开发实战详解(十一、全面深入理解Stream)》](https://juejin.im/post/5cc2acf86fb9a0321f042041)
-
-[《Flutter完整开发实战详解(十二、全面深入理解状态管理设计)》](https://juejin.im/post/5cc816866fb9a03231209c7c)
-
-[《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
 
 ![我们还会再见吗？](http://img.cdn.guoshuyu.cn/20190604_Flutter-12/image7)

@@ -1,10 +1,11 @@
 
 作为系列文章的第四篇，本篇主要介绍 Flutter 中 Redux 的使用，并结合Redux 完成实时的**主题切换**与**多语言切换**功能。
 
->前文：
->* [一、Dart语言和Flutter基础](https://juejin.im/post/5b631d326fb9a04fce524db2)
->* [二、 快速开发实战篇](https://juejin.im/post/5b685a2a5188251ac22b71c0)
->* [三、 打包与填坑篇](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
+## 文章汇总地址：
+
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 Flutter 作为**响应式框架**，通过 `state` 实现跨帧渲染的逻辑，难免让人与 *React* 和 *React Native* 联系起来，而其中 *React* 下*“广为人知”*的 **Redux 状态管理**，其实在 Flutter 中同样适用。
 
@@ -18,13 +19,11 @@ Flutter 作为**响应式框架**，通过 `state` 实现跨帧渲染的逻辑�
 
 ## 一、Redux
 
-Redux 的概念是**状态管理**，那在已有 `state` 的基础上，为什么还需要 Redux ？
-
-因为使用 Redux 的好处是：**共享状态**和**单一数据**。
+Redux 的概念是**状态管理**，那在已有 `state` 的基础上，为什么还需要 Redux ？因为使用 Redux 的好处是：**共享状态**和**单一数据**。
 
 试想一下，App内有多个地方使用到登陆用户的数据，这时候如果某处对用户数据做了修改，各个页面的同步更新会是一件麻烦的事情。
 
-但是引入 Redux 后，某个页面修改了当前用户信息，所有绑定了 Redux 的控件，将由 Redux 自动同步刷新。See！这在一定程度节省了我们的工作量，并且单一数据源在某些场景下也方便管理。同理我们后面所说的 *主题* 和 *多语言* 切换也是如此。
+但是引入 Redux 后，某个页面修改了当前用户信息，所有绑定了 Redux 的控件，将由 Redux 自动同步刷新。See！这在一定程度节省了我们的工作量，并且单一数据源在某些场景下也方便管理，同理我们后面所说的 *主题* 和 *多语言* 切换也是如此。
 
 ![大致流程图](http://img.cdn.guoshuyu.cn/20190604_Flutter-4/image2)
 
@@ -44,9 +43,7 @@ Redux 的概念是**状态管理**，那在已有 `state` 的基础上，为什�
 
 4、更新 Store 中 state 绑定的 Widget。
 
-根据这个流程，首先我们要创建一个 **Store** 。
-
-如下图，创建 Store 需要 `reducer` ，而 `reducer` 实际上是一个带有 `state` 和 `action` 的方法，并返回新的 State 。
+根据这个流程，首先我们要创建一个 **Store** 。如下图，创建 Store 需要 `reducer` ，而 `reducer` 实际上是一个带有 `state` 和 `action` 的方法，并返回新的 State 。
 
 ![](http://img.cdn.guoshuyu.cn/20190604_Flutter-4/image3)
 
@@ -437,18 +434,7 @@ class _GSYLocalizations extends State<GSYLocalizations> {
 * [GSYGithubAppWeex](https://github.com/CarGuo/GSYGithubAppWeex)
 * [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp ) 
 
-##### 文章
 
-
-[《Flutter完整开发实战详解(一、Dart语言和Flutter基础)》](https://juejin.im/post/5b631d326fb9a04fce524db2)
-
-[《Flutter完整开发实战详解(二、 快速开发实战篇)》](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-
-[《Flutter完整开发实战详解(三、 打包与填坑篇)》](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-
-[《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
 
 
 ![我们还会再见吗？](http://img.cdn.guoshuyu.cn/20190604_Flutter-4/image8)

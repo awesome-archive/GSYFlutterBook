@@ -1,23 +1,10 @@
 作为系列文章的第十八篇，本篇将通过 ScrollPhysics 和 Simulation ，带你深入走进 Flutter 的滑动新世界，为你打开 Flutter 滑动操作的另一扇窗。
 
-> 前文：
-> * [一、  Dart语言和Flutter基础](https://juejin.im/post/5b631d326fb9a04fce524db2)
-> * [二、  快速开发实战篇](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-> * [三、  打包与填坑篇](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-> * [四、  Redux、主题、国际化](https://juejin.im/post/5b79767ff265da435450a873)
-> * [五、  深入探索](https://juejin.im/post/5bc450dff265da0a951f032b)
-> * [六、  深入Widget原理](https://juejin.im/post/5c7e853151882549664b0543)
-> * [七、  深入布局原理](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-> * [八、  实用技巧与填坑](https://juejin.im/post/5c9e328251882567b91e1cfb)
-> * [九、  深入绘制原理](https://juejin.im/post/5ca0e0aff265da309728659a) 
-> * [十、  深入图片加载流程](https://juejin.im/post/5cb1896ce51d456e63760449)
-> * [十一、全面深入理解Stream](https://juejin.im/post/5cc2acf86fb9a0321f042041) 
-> * [十二、全面深入理解状态管理设计](https://juejin.im/post/5cc816866fb9a03231209c7c) 
-> * [十三、全面深入触摸和滑动原理](https://juejin.im/post/5cd54839f265da03b2044c32) 
-> * [十四、混合开发打包 Android 篇](https://juejin.im/post/5cf527036fb9a07ed911acd8)
-> * [十五、全面理解State与Provider](https://juejin.im/post/5d0634c7f265da1b91639232)
-> * [十六、详解自定义布局实战](https://juejin.im/post/5d1af0aee51d454fbf540a52)
-> * [十七、 实用技巧与填坑二](https://juejin.im/post/5d6cb579f265da03da24aeb9)
+## 文章汇总地址：
+
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 ## 一、前言 
 
@@ -209,7 +196,7 @@ Tolerance get tolerance
 
 `BouncingScrollPhysics` 中对 `applyPhysicsToUserOffset` 方法进行了 `override` ，其中 **用户没有达到边界前，依旧返回默认的 `offset`，当用户到达边界时，通过算法来达到模拟溢出阻尼效果。**
 
- 
+
 ```
 
  ///摩擦因子
@@ -280,7 +267,7 @@ Tolerance get tolerance
 `ClampingScrollPhysics` 的 `createBallisticSimulation` 方法中，**使用了 `ClampingScrollSimulation`(固定) 和 `ScrollSpringSimulation`(弹性) 两种 `Simulation`** ，如下代码所示，理论上只有 `position.outOfRange` 才会触发弹性的回弹效果，但 `ScrollPhysics` 采用了类似 **双亲代理模型** ，其 `parent` 可能会触发 `position.outOfRange` ，所以推测这里才会有 `ScrollSpringSimulation` 补充的判断。
 
 如下代码可以看出，**只有在 `velocity` 速度大于默认加速度，并且是可滑动范围内，才返回 `ClampingScrollPhysics` 模拟滑动，否则返回 null 进入前面所说的 Idle 停止滑动，这也是为什么普通慢速拖动，不会触发自动滚动的原因。**
- 
+
 ```
 @override
   Simulation createBallisticSimulation(
@@ -396,14 +383,5 @@ Tolerance get tolerance
 * **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
 * **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 * 开源 React Native 项目：https://github.com/CarGuo/GSYGithubApp
-
-
-### 其他文章
-
-[《Flutter完整开发实战详解系列》](https://juejin.im/user/582aca2ba22b9d006b59ae68/posts)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
-
-[《全网最全Flutter与React Native深入对比分析》](https://juejin.im/post/5d0bac156fb9a07ec56e7f15)
 
 ![](http://img.cdn.guoshuyu.cn/20190929_Flutter-18/image9)
