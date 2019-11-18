@@ -8,7 +8,7 @@
 
 ## 一、前言 
 
-如下图所示，Flutter 默认的可滑动 `Widget`，在 Android 和 iOS 上具备不同的 **滑动与边缘拖拽效果** ，这是因为在不同平台上，默认使用了不同的 **`ScrollPhysics` 与 `Simulation`** ，后面我们将逐步介绍这两大主角的实现原理，**最终让你对 Flutter 世界的滑动拖拽进阶到 *“为所欲为”* 的境界。**
+如下图所示是Flutter 默认的可滑动 `Widget` 效果，在 Android 和 iOS 上出现了不同的 **滑动速度与边缘拖拽效果** ，这是因为在不同平台上，默认使用了不同的 **`ScrollPhysics` 与 `Simulation`** ，后面我们将逐步介绍这两大主角的实现原理，**最终让你对 Flutter 世界的滑动拖拽进阶到 *“为所欲为”* 的境界。**
 
 ![](http://img.cdn.guoshuyu.cn/20190929_Flutter-18/image1)
 
@@ -31,7 +31,7 @@
  GridView.count(physics: NeverScrollableScrollPhysics())
 ```
 
-但在一般我们都不会主动去设置 **`physics` 属性，** 那么默认情况下，为什么在 Flutter 中的 `ListView` 、`CustomScrollView` 等 `Scrollable` 控件，在 Android 和 iOS 平台的滚动和边界拖拽效果，会有如下图所示的平台区别呢？
+但在一般我们都不会主动去设置 **`physics` 属性，** 那么默认情况下，为什么在 Flutter 中的 `ListView` 、`CustomScrollView` 等 `Scrollable` 控件中，在 Android 和 iOS 平台的滚动和边界拖拽效果，会出现如下图所示的平台区别呢？
 
 ![](http://img.cdn.guoshuyu.cn/20190929_Flutter-18/image2)
 
@@ -39,9 +39,9 @@
 
 ### 2.1、ScrollConfiguration 和 ScrollBehavior
 
-我们知道，所有的滑动控件都是通过 `Scrollable`  进行滑动的。
+我们知道所有的滑动控件都是通过 `Scrollable`  对触摸进行响应从而进行滑动的。
 
-如下代码所示，在 `Scrollable` 内的 **`_updatePosition`** 方法里，当 `widget.physics == null` 时，**`_physics` 默认是从  `ScrollConfiguration.of(context)` 的 `getScrollPhysics(context)` 方法获取** ，而 **`ScrollConfiguration.of(context)`** 返回的是一个 **`ScrollBehavior`** 对象。
+如下代码所示，在 `Scrollable` 的 **`_updatePosition`** 方法内，当 `widget.physics == null` 时，**`_physics` 默认是从  `ScrollConfiguration.of(context)` 的 `getScrollPhysics(context)` 方法获取** ，而 **`ScrollConfiguration.of(context)`** 返回的是一个 **`ScrollBehavior`** 对象。
 
 ```
   // Only call this from places that will definitely trigger a rebuild.
@@ -82,7 +82,7 @@
   }
 ```
 
-前面说过， **`ScrollPhysics` 是确定可滚动控件的物理特性** ，那么如前图所示，**Android 平台上拖拽溢出的蓝色半圆的怎么来的？`ScrollConfiguration` 的 `ScrollBehavior` 是在什么时候被设置的？**
+前面说过， **`ScrollPhysics` 是确定可滚动控件的物理特性** ，那么如上图所示，**Android 平台上拖拽溢出的蓝色半圆的怎么来的？`ScrollConfiguration` 的 `ScrollBehavior` 是在什么时候被设置的？**
 
 查看 `ScrollConfiguration` 的源码我们得知， **`ScrollConfiguration` 和 `Theme`、`Localizations` 等一样是 `InheritedWidget`，那么它应该是从上层往下共享的。** 
 
