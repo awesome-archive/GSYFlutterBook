@@ -7,7 +7,7 @@
 > [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 
-```!
+```
 
 ⚠️第十二篇中更多讲解状态的是管理框架，本篇更多讲解 Flutter 本身的状态设计。
 
@@ -161,7 +161,7 @@
 
 它的特点就是： **不复杂，好理解，代码量不大的情况下，可以方便组合和控制刷新颗粒度** ， 而原 Google 官方仓库的状态管理 [flutter-provide](https://github.com/google/flutter-provide) 已宣告GG ， [provider](https://github.com/rrousselGit/provider) 成了它的替代品。
 
-```!
+```
 ⚠️注意，`provider` 比 `flutter-provide` 多了个 `r`。
 ```
 

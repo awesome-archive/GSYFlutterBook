@@ -210,7 +210,7 @@ class _DemoStateWidgetState extends State<DemoStateWidget> {
   void initState() {
     ///初始化，这个函数在生命周期中只调用一次
     super.initState();
-    ///定时2秒
+    ///定时1秒
     new Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         text = "这就变了数值";
