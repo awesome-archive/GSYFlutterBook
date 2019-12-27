@@ -48,6 +48,7 @@
   * [全网最全 Flutter 与 ReactNative深入对比分析](qwzqdb.md)
   * [Flutter 开发实战与前景展望 - RTC Dev Meetup](Flutter-rtc-meetup.md)
   * [Flutter Interact 的 Flutter 1.12 大进化和回顾](Flutter-Interact-2019.md)
+  * [Flutter 升级 1.12 适配教程](Flutter-update-1.12.md)
   
   
 

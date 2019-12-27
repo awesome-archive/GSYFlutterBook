@@ -68,6 +68,7 @@
   * [Flutter 面试知识点集锦](Flutter-msjj.md)
   * [Flutter 开发实战与前景展望 - RTC Dev Meetup](Flutter-rtc-meetup.md)
   * [Flutter Interact 的 Flutter 1.12 大进化和回顾](Flutter-Interact-2019.md)
+  * [Flutter 升级 1.12 适配教程](Flutter-update-1.12.md)
   
   
 
