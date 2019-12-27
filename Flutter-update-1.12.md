@@ -112,14 +112,18 @@ public class FlutterPluginTestNewPlugin implements FlutterPlugin, MethodCallHand
 ![](http://img.cdn.guoshuyu.cn/20191227_Flutter-update-1.12/image1)
 
 
-2、如果条件允许可以修改主项目的 `MainActivity` 对象，**将继承的 `FlutterActivity 从 io.flutter.app.FlutterActivity` 替换为 `io.flutter.embedding.android.FlutterActivity`，之后 后插件就可以自动注册；** 如果条件不允许还是使用旧版本的 `FlutterActivity` ，就需要移除原有的 `onCreate` 方法并替换为如下所示代码；如果不继承  `FlutterActivity` 的需要自己手动调用 `GeneratedPluginRegistrant.registerWith` 方法 ，当然到此处可能会提示 `registerWith` 方法调用不正确，不要急忽略它往下走。
+
+2、如果条件允许可以修改主项目的 `MainActivity` 对象，**将继承的 `FlutterActivity 从 io.flutter.app.FlutterActivity` 替换为 `io.flutter.embedding.android.FlutterActivity`，之后 插件就可以自动注册；** 如果条件不允许不继承  `FlutterActivity` 的需要自己手动调用 `GeneratedPluginRegistrant.registerWith` 方法 ，当然到此处可能会提示 `registerWith` 方法调用不正确，不要急忽略它往下走。
 
 ```
+/// 这个方法如果在下面的 3 中 AndroidManifest.xml 不打开 flutterEmbedding v2 的配置，就需要手动调用
 @Override
   public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
     GeneratedPluginRegistrant.registerWith(flutterEngine);
   }
 ```
+
+> 如果按照 3 中一样打开了 v2 ，那么生成的 GeneratedPluginRegistrant 就是使用 FlutterEngine ，不配置  v2 使用的就是 PluginRegistry 。
 
 3、之后还需要调整 `AndroidManifest.xml` 文件，如下图所示，需要将原本的 `io.flutter.app.android.SplashScreenUntilFirstFrame` 这个 `meta-data` 移除，然后增加为 `io.flutter.embedding.android.SplashScreenDrawable` 和 `io.flutter.embedding.android.NormalTheme` 这两个 `meta-data` ，主要是用于应用打开时的占位图样式和进入应用后的主题样式。 
 
