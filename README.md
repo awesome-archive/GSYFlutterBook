@@ -19,6 +19,10 @@
 
 - ### [开源 Flutter 多案例学习型项目](https://github.com/CarGuo/GSYFlutterDemo)
 
+
+### 公众号 GSYTech
+![公众号](http://img.cdn.guoshuyu.cn/10F364A6-69F5-40C2-AB2A-124EEC1AD8CC.png)
+
 ----
 
 ### 目录
