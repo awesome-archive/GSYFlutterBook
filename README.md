@@ -20,7 +20,7 @@
 - ### [开源 Flutter 多案例学习型项目](https://github.com/CarGuo/GSYFlutterDemo)
 
 
-![公众号](http://img.cdn.guoshuyu.cn/WechatIMG3024.jpeg)
+![公众号](http://img.cdn.guoshuyu.cn/WeChat-Code)
 
 ----
 
