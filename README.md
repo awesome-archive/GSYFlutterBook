@@ -11,7 +11,7 @@
 
 - ### [在线阅读地址](https://guoshuyu.cn/home/wx/)
 
-- ### [PDF 下载地址](https://raw.githubusercontent.com/CarGuo/GSYFlutterBook/master/Flutter完整开发实战详解系列.pdf)
+- ### [PDF 下载地址](https://gitee.com/CarGuo/GSYFlutterBook/blob/master/Flutter完整开发实战详解系列.pdf)
 
 - ### [Github 地址 CarGuo](https://github.com/CarGuo)
 
