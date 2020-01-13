@@ -1,20 +1,14 @@
 作为系列文章的第五篇，本篇主要探索下 Flutter 中的一些有趣原理，帮助我们更好的去理解和开发。
 
->前文：
->* [一、Dart语言和Flutter基础](https://xiaozhuanlan.com/topic/3269105784)
->* [二、 快速开发实战篇](https://xiaozhuanlan.com/topic/1640729835)
->* [三、 打包与填坑篇](https://xiaozhuanlan.com/topic/7938654021)
->* [四、Redux、主题、国际化)](https://juejin.im/post/5b79767ff265da435450a873)
+## 文章汇总地址：
 
-### 一、WidgetsFlutterBinding
-
-*这是一个胶水类。*
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 #### 1、Mixins 
 
-混入其中(￣.￣)！
-
-是的，Flutter 使用的是 Dart 支持 Mixin ，而 Mixin 能够更好的解决**多继承**中容易出现的问题，如：**方法优先顺序混乱、参数冲突、类结构变得复杂化**等等。
+混入其中(￣.￣)！，是的，Flutter 使用的是 Dart 支持 Mixin ，而 Mixin 能够更好的解决**多继承**中容易出现的问题，如：**方法优先顺序混乱、参数冲突、类结构变得复杂化**等等。
 
 Mixin 的定义解释起来会比较绕，我们直接代码从中出吧。如下代码所示，在 Dart 中 `with` 就是用于 mixins。可以看出，`class G extends B with A, A2` ，在执行 G 的 a、b、c 方法后，输出了 `A2.a()、A.b() 、B.c()` 。所以结论上简单来说，就是**相同方法被覆盖了，并且 with 后面的会覆盖前面的**。 
 
@@ -310,6 +304,8 @@ PaintingBinding.instance.imageCache.maximumSizeBytes= 50 << 20;
 
 其中 Android 的编译后二进制文件存在于 `data/data/包名/app_flutter/flutter_assets/`下。做过 Android 的应该知道，这个路径下是可以很简单更新的，所以你懂的 ￣ω￣=。
 
+> **⚠️注意，1.7.8 之后的版本，Android 下的 Flutter 已经编译为纯 so 文件。**
+
 IOS？据我了解，貌似动态库 framework 等引用是不能用热更新的，除非你不需要审核！
 
 
@@ -318,44 +314,15 @@ IOS？据我了解，貌似动态库 framework 等引用是不能用热更新的
 
 ### 资源推荐
 
-* Github ： [https://github.com/CarGuo](https://github.com/CarGuo)
-* 本文代码 ：[https://github.com/CarGuo/GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter)
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 
 * [GSYGithubAppWeex](https://github.com/CarGuo/GSYGithubAppWeex)
 * [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp ) 
-
-##### 文章
-
-
-[《Flutter完整开发实战详解(一、Dart语言和Flutter基础)》](https://juejin.im/post/5b631d326fb9a04fce524db2)
-
-[《Flutter完整开发实战详解(二、 快速开发实战篇)》](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-
-[《Flutter完整开发实战详解(三、 打包与填坑篇)》](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-
-[《Flutter完整开发实战详解(四、Redux、主题、国际化)》](https://juejin.im/post/5b79767ff265da435450a873)
-
-[《Flutter完整开发实战详解(五、 深入探索)》](https://juejin.im/post/5bc450dff265da0a951f032b)
-
-[《Flutter完整开发实战详解(六、 深入Widget原理)》](https://juejin.im/post/5c7e853151882549664b0543)
-
-[《Flutter完整开发实战详解(七、 深入布局原理)》](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-
-[《Flutter完整开发实战详解(八、 实用技巧与填坑)》](https://juejin.im/post/5c9e328251882567b91e1cfb)
-
-[《Flutter完整开发实战详解(九、 深入绘制原理)》](https://juejin.im/post/5ca0e0aff265da309728659a)
-
-[《Flutter完整开发实战详解(十、 深入图片加载流程)》](https://juejin.im/post/5cb1896ce51d456e63760449)
-
-[《Flutter完整开发实战详解(十一、全面深入理解Stream)》](https://juejin.im/post/5cc2acf86fb9a0321f042041)
-
-[《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
-
-[《React Native 的未来与React Hooks》](https://juejin.im/post/5cb34404f265da0384127fcd)
 
 ![我们还会再见吗？](http://img.cdn.guoshuyu.cn/20190604_Flutter-5/image12)
 

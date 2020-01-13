@@ -1,12 +1,10 @@
 作为系列文章的第七篇，本篇主要在前文的基础上，再深入了解 Widget 和布局中的一些常识性问题。
 
-> 前文：
-> * [一、Dart语言和Flutter基础](https://juejin.im/post/5b631d326fb9a04fce524db2)
-> * [二、 快速开发实战篇](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-> * [三、 打包与填坑篇](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-> * [四、 Redux、主题、国际化](https://juejin.im/post/5b79767ff265da435450a873)
-> * [五、 深入探索](https://juejin.im/post/5bc450dff265da0a951f032b)
-> * [六、 深入Widget原理](https://juejin.im/post/5c7e853151882549664b0543)
+## 文章汇总地址：
+
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 
 在第六篇中我们知道了 `Widget`、`Element`、`RenderObject` 三者之间的关系，其中我们最为熟知的 `Widget` ，作为“配置文件”的存在，在 Flutter 中它的功能都是比较单一的，属于 *“颗粒度比较细的存在”*  ，写代码时就像拼乐高“积木”，那这“积木”究竟怎么拼的？下面就 **深入** 去挖挖有意思的东西吧。(￣▽￣)
@@ -28,7 +26,7 @@
 
 | Widget        | RenderObject                                    |
 | --------- |  --------- |
-| RenderConstrainedBox | RenderConstrainedBox |
+| ConstrainedBox | RenderConstrainedBox |
 
 ![ConstrainedBox](http://img.cdn.guoshuyu.cn/20190604_Flutter-7/image2)
 
@@ -42,7 +40,7 @@
 | Transform | RenderTransform |
 |Offstage|RenderOffstage|
 
-所以我们可以总结：**真正的布局和大小计算等行为，都是在 `RenderBox` 上去实现的。** 不同的 Widget 通过各自的 `RenderBox ` 实现了“差异化”的布局效果。**所以找每个 Widget 的实现，找它的 `RenderBox ` 实现就可以了。**
+所以我们可以总结：**真正的布局和大小计算等行为，都是在 `RenderBox` 上去实现的。** 不同的 Widget 通过各自的 `RenderBox ` 实现了“差异化”的布局效果。**所以找每个 Widget 的实现，找它的 `RenderBox ` 实现就可以了。**（当然，另外还有 `RenderSliver`，这里暂时不讨论）
 
 这里我们通过 **`Offstage`** 这个Widget 小结下，**`Offstage`** 这个 Widget 是通过 `offstage` 标志控制 **child** 是否显示的效果，同样的它也有一个 `RenderOffstage ` ，如下图，通过 `RenderOffstage ` 的源码我们可以“真实”看到  `offstage` 标志位的作用：
 
@@ -158,7 +156,6 @@ CustomScrollView(
 )
 ```
 
-
 -------
 
 #### 不知道你看完本篇后，有没有对 Flutter 的布局有更深入的了解呢？*让我们愉悦的堆积木吧！*
@@ -167,43 +164,15 @@ CustomScrollView(
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
-* 本文代码 ：https://github.com/CarGuo/GSYGithubAppFlutter
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 多案例学习型: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 
 * [GSYGithubApp Flutter](https://github.com/CarGuo/GSYGithubAppFlutter ) 
 * [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp ) 
 * [GSYGithubAppWeex](https://github.com/CarGuo/GSYGithubAppWeex)
-
-##### 文章
-
-[《Flutter完整开发实战详解(一、Dart语言和Flutter基础)》](https://juejin.im/post/5b631d326fb9a04fce524db2)
-
-[《Flutter完整开发实战详解(二、 快速开发实战篇)》](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-
-[《Flutter完整开发实战详解(三、 打包与填坑篇)》](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-
-[《Flutter完整开发实战详解(四、Redux、主题、国际化)》](https://juejin.im/post/5b79767ff265da435450a873)
-
-[《Flutter完整开发实战详解(五、 深入探索)》](https://juejin.im/post/5bc450dff265da0a951f032b)
-
-[《Flutter完整开发实战详解(六、 深入Widget原理)》](https://juejin.im/post/5c7e853151882549664b0543)
-
-[《Flutter完整开发实战详解(七、 深入布局原理)》](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-
-[《Flutter完整开发实战详解(八、 实用技巧与填坑)》](https://juejin.im/post/5c9e328251882567b91e1cfb)
-
-[《Flutter完整开发实战详解(九、 深入绘制原理)》](https://juejin.im/post/5ca0e0aff265da309728659a)
-
-[《Flutter完整开发实战详解(十、 深入图片加载流程)》](https://juejin.im/post/5cb1896ce51d456e63760449)
-
-[《Flutter完整开发实战详解(十一、全面深入理解Stream)》](https://juejin.im/post/5cc2acf86fb9a0321f042041)
-
-[《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
-
-[《React Native 的未来与React Hooks》](https://juejin.im/post/5cb34404f265da0384127fcd)
 
 ![我们还会再见吗？](http://img.cdn.guoshuyu.cn/20190604_Flutter-7/image9)

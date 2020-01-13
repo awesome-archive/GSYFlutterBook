@@ -1,13 +1,19 @@
-作为系列文章的第二篇，继[《Flutter完整开发实战详解(一、Dart语言和Flutter基础)》](https://juejin.im/post/5b631d326fb9a04fce524db2)之后，本篇将为你着重展示：**如何搭建一个通用的Flutter App 常用功能脚手架，快速开发一个完整的 Flutter 应用**。
+作为系列文章的第二篇，本篇将为你着重展示：**如何搭建一个通用的Flutter App 常用功能脚手架，快速开发一个完整的 Flutter 应用**。
 
 >友情提示：本文所有代码均在 [**GSYGithubAppFlutter**](https://github.com/CarGuo/GSYGithubAppFlutter) ，文中示例代码均可在其中找到，看完本篇相信你应该可以轻松完成如下效果。相关基础还请看[篇章一](https://juejin.im/post/5b631d326fb9a04fce524db2)。
 
 ![我们的目标是！(￣^￣)ゞ](http://img.cdn.guoshuyu.cn/20190604_Flutter-2/image1)
 
 
+## 文章汇总地址：
+
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
+
 ## 前言
 
-本篇内容结构如下图，主要分为： **基础控件、数据模块、其他功能** 三部分。每大块中的小模块，除了涉及的功能实现外，对于实现过程中笔者遇到的问题，会一并展开阐述。本系列的最终目的是： **让你感受 Flutter 的愉悦！** 那么就让我们愉悦的往下开始吧！(◐‿◑)
+本篇内容结构如下图，主要分为： **基础控件、数据模块、其他功能** 三部分。每大块中的小模块，除了涉及的功能实现外，对于实现过程中笔者遇到的问题，会一并展开阐述，本系列的最终目的是： **让你感受 Flutter 的愉悦！** 那么就让我们愉悦的往下开始吧！
 
 
 ![我是简陋的下图](http://img.cdn.guoshuyu.cn/20190604_Flutter-2/image2)
@@ -20,11 +26,9 @@
 
 ### 1、Tabbar控件实现
 
-Tabbar 页面是常有需求，而在Flutter中： **Scaffold + AppBar + Tabbar + TabbarView** 是 Tabbar 页面的最简单实现，但在加上 `AutomaticKeepAliveClientMixin`  用于页面 *keepAlive* 之后，诸如[#11895](https://github.com/flutter/flutter/issues/11895)的问题便开始成为Crash的元凶。直到 *flutter v0.5.7 sdk* 版本修复后，问题依旧没有完全解决，所以无奈最终修改了实现方案。
+Tabbar 页面是常有需求，而在Flutter中： **Scaffold + AppBar + Tabbar + TabbarView** 是 Tabbar 页面的最简单实现，但在加上 `AutomaticKeepAliveClientMixin`  用于页面 *keepAlive* 之后，早期诸如[#11895](https://github.com/flutter/flutter/issues/11895)的问题便开始成为Crash的元凶，直到 *flutter v0.5.7 sdk* 版本修复后，问题依旧没有完全解决，所以无奈最终修改了实现方案。（1.9.1 stable 中已经修复）
 
-目前笔者是通过 **Scaffold + Appbar + Tabbar + PageView** 来组合实现效果，从而解决上述问题。因为该问题较为常见，所以目前已经单独实现了测试Demo，有兴趣的可以看看 [TabBarWithPageView](https://github.com/CarGuo/TabBarWithPageView)。
-
-下面我们直接代码走起，首先作为一个Tabbar Widget，它肯定是一个 `StatefulWidget` ，所以我们先实现它的 `State ` ：
+目前笔者是通过 **Scaffold + Appbar + Tabbar + PageView** 来组合实现效果，从而解决上述问题。下面我们直接代码走起，首先作为一个Tabbar Widget，它肯定是一个 `StatefulWidget` ，所以我们先实现它的 `State ` ：
 
 ```
  class _GSYTabBarState extends State<GSYTabBarWidget> with SingleTickerProviderStateMixin {
@@ -85,7 +89,7 @@ Tabbar 页面是常有需求，而在Flutter中： **Scaffold + AppBar + Tabbar 
   }
 ```
 
-如上代码所示，这是一个 *底部 TabBar* 的页面的效果。TabBar 和 PageView 之间通过 `_pageController` 和 `_tabController` 实现 Tab 和页面的同步，通过 `SingleTickerProviderStateMixin ` 实现 Tab 的动画切换效果 *(ps 如果有需要多个嵌套动画效果，你可能需要`TickerProviderStateMixin`)*。 从代码中我们可以看到：
+如上代码所示，这是一个 *底部 TabBar* 的页面的效果。TabBar 和 PageView 之间通过 `_pageController` 和 `_tabController` 实现 Tab 和页面的同步，通过 `SingleTickerProviderStateMixin ` 实现 Tab 的动画切换效果 *(ps 如果有需要多个嵌套动画效果，你可能需要`TickerProviderStateMixin`)*，从代码中我们可以看到：
 
 * 手动左右滑动 `PageView ` 时，通过 `onPageChanged` 回调调用 `_tabController.animateTo(index);` 同步TabBar状态。
 
@@ -200,13 +204,15 @@ class _TabBarBottomPageWidgetState extends State<TabBarBottomPageWidget> {
 
 ![顶部TabBar效果](http://img.cdn.guoshuyu.cn/20190604_Flutter-2/image4)
 
-在 TabBar  页面中，一般还会出现：**父页面需要控制 PageView 中子页的需求**。这时候就需要用到`GlobalKey`了。比如 `GlobalKey<PageOneState> stateOne = new GlobalKey<PageOneState>();` ，通过 globalKey.currentState 对象，你就可以调用到 PageOneState 中的公开方法。这里需要注意 `GlobalKey` 需要全局唯一，一般可以在`build` 方法中创建。
+在 TabBar  页面中，一般还会出现：**父页面需要控制 PageView 中子页的需求**，这时候就需要用到`GlobalKey`了，比如 `GlobalKey<PageOneState> stateOne = new GlobalKey<PageOneState>();` ，通过 globalKey.currentState 对象，你就可以调用到 PageOneState 中的公开方法，这里需要注意 `GlobalKey` 实例需要全局唯一。
 
 ### 2、上下刷新列表
 
-*毫无争议，必备控件*。Flutter 中 为我们提供了 `RefreshIndicator` 作为内置下拉刷新控件；同时我们通过给 `ListView` 添加 `ScrollController` 做滑动监听，在最后增加一个 Item， 作为上滑加载更多的 Loading 显示。
+*毫无争议，必备控件*。
 
-如下代码所示，通过 `RefreshIndicator`  控件可以简单完成下拉刷新工作。这里需要注意一点是：**可以利用 `GlobalKey<RefreshIndicatorState>` 对外提供 `RefreshIndicator` 的 `RefreshIndicatorState`，这样外部就 可以通过 GlobalKey 调用 ` globalKey.currentState.show(); `，主动显示刷新状态并触发 `onRefresh`** 。
+Flutter 中 为我们提供了 `RefreshIndicator` 作为内置下拉刷新控件；同时我们通过给 `ListView` 添加 `ScrollController` 做滑动监听，在最后增加一个 Item， 作为上滑加载更多的 Loading 显示。
+
+如下代码所示，通过 `RefreshIndicator`  控件可以简单完成下拉刷新工作，这里需要注意一点是：**可以利用 `GlobalKey<RefreshIndicatorState>` 对外提供 `RefreshIndicator` 的 `RefreshIndicatorState`，这样外部就 可以通过 GlobalKey 调用 ` globalKey.currentState.show(); `，主动显示刷新状态并触发 `onRefresh`** 。
 
 **上拉加载更多**在代码中是通过  ` _getListCount() ` 方法，在原本的数据基础上，增加实际需要渲染的 item 数量给 ListView 实现的，最后**通过 `ScrollController` 监听到底部，触发 `onLoadMore`**。
 
@@ -348,7 +354,7 @@ class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget> {
 
 ### 4、矢量图标库
 
-**矢量图标**对笔者是必不可少的。比起一般的 png 图片文件，矢量图标在开发过程中：**可以轻松定义颜色，并且任意调整大小不模糊**。矢量图标库是引入 ttf 字体库文件实现，在 Flutter 中通过 `Icon` 控件，加载对应的 `IconData` 显示即可。
+**矢量图标**对笔者是必不可少的，比起一般的 png 图片文件，矢量图标在开发过程中：**可以轻松定义颜色，并且任意调整大小不模糊**。矢量图标库是引入 ttf 字体库文件实现，在 Flutter 中通过 `Icon` 控件，加载对应的 `IconData` 显示即可。
 
 Flutter 中默认内置的 `Icons` 类就提供了丰富的图标，直接通过 `Icons` 对象即可使用，同时个人推荐阿里爸爸的 **iconfont** 。如下代码，通过在 `pubspec.yaml` 中添加字体库支持，然后在代码中创建 `IconData` 指向字体库名称引用即可。
 
@@ -381,6 +387,8 @@ Flutter 中默认内置的 `Icons` 类就提供了丰富的图标，直接通过
 
 Flutter 中的页面跳转是通过 `Navigator`  实现的，路由跳转又分为：**带参数跳转和不带参数跳转**。不带参数跳转比较简单，默认可以通过 MaterialApp 的路由表跳转；而带参数的跳转，参数通过跳转页面的构造方法传递。常用的跳转有如下几种使用：
 
+> 新版本开始可以给 `pushNamed` 设置 `arguments` 参数，然后在新页面通过 `ModalRoute.of(context).settings.arguments` 获取。
+
 ```
 ///不带参数的路由表跳转
 Navigator.pushNamed(context, routeName);
@@ -397,7 +405,7 @@ Navigator.push(context, new MaterialPageRoute(builder: (context) => new NotifyPa
     });
 ```
 
-&emsp; 同时我们可以看到，Navigator 的 push 返回的是一个 `Future`，这个`Future ` 的作用是**在页面返回时被调用的**。也就是你可以通过 `Navigator` 的 `pop` 时返回参数，之后在 `Future` 中可以的监听中处理页面的返回结果。
+同时我们可以看到，Navigator 的 push 返回的是一个 `Future`，这个`Future ` 的作用是**在页面返回时被调用的**。也就是你可以通过 `Navigator` 的 `pop` 时返回参数，之后在 `Future` 中可以的监听中处理页面的返回结果。
 
 
 ```
@@ -416,10 +424,10 @@ static Future<T> push<T extends Object>(BuildContext context, Route<T> route) {
 
 ### 1、网络请求
 
-当前 Flutter 网络请求封装中，国内最受欢迎的就是 [Dio](https://github.com/flutterchina/dio) 了，Dio 封装了网络请求中的**数据转换、拦截器、请求返回**等。如下代码所示，通过对 Dio 的简单封装即可快速网络请求，真的很简单，更多的可以查 Dio 的官方文档，这里就不展开了。(真的不是懒(˶‾᷄ ⁻̫ ‾᷅˵))
+当前 Flutter 网络请求封装中，国内最受欢迎的就是 [Dio](https://github.com/flutterchina/dio) 了，Dio 封装了网络请求中的**数据转换、拦截器、请求返回**等。如下代码所示，通过对 Dio 的简单封装即可快速网络请求，真的很简单，更多的可以查 Dio 的官方文档，这里就不展开了。
 
 ```
-    ///创建网络请求对象
+    ///创建网络请求对象，主要最好吧 dio 实例全局单里
     Dio dio = new Dio();
     Response response;
     try {
@@ -434,7 +442,7 @@ static Future<T> push<T extends Object>(BuildContext context, Route<T> route) {
 
 ### 2、Json序列化
 
-在 Flutter 中，json 序列化是有些特殊的。不同与 JS ，比如使用上述 Dio 网络请求返回，如果配置了返回数据格式为 **json** ，实际上的到会是一个Map。而 Map 的 key-value 使用，在开发过程中并不是很方便，所以你需要对Map 再进行一次转化，转为实际的 Model 实体。
+在 Flutter 中，json 序列化是有些特殊的，不同与 JS ，比如使用上述 Dio 网络请求返回，如果配置了返回数据格式为 **json** ，实际上的到会是一个Map。而 Map 的 key-value 使用，在开发过程中并不是很方便，所以你需要对Map 再进行一次转化，转为实际的 Model 实体。
 
 所以 `json_serializable` 插件诞生了，  [中文网Json](https://flutterchina.club/json/) 对其已有一段教程，这里主要补充说明下具体的使用逻辑。
 
@@ -511,17 +519,17 @@ abstract class _$TemplateSerializerMixin {
 
 ```
 
-## *注意：新版json序列化中做了部分修改，代码更简单了，详见demo*
+## *注意：新版json序列化中做了部分修改，代码更简单了，详见demo* 。
 
-### 3、Redux State
+### 3、Redux
 
-相信在前端领域、*Redux* 并不是一个陌生的概念。作为**全局状态管理机**，用于 Flutter 中再合适不过。如果你没听说过，**Don't worry**，简单来说就是：**它可以跨控件管理、同步State** 。所以 [flutter_redux](https://pub.flutter-io.cn/packages/flutter_redux) 等着你征服它。
+相信在前端领域、*Redux* 并不是一个陌生的概念，作为**全局状态管理机**，用于 Flutter 中再合适不过。如果你没听说过，**Don't worry**，简单来说就是：**它可以跨控件管理、同步State** 。所以 [flutter_redux](https://pub.flutter-io.cn/packages/flutter_redux) 等着你征服它。
 
-大家都知道在 Flutter 中 ，是通过实现 `State` 与 `setState` 来渲染和改变 `StatefulWidget` 的。如果使用了`flutter_redux` 会有怎样的效果？
+大家都知道在 Flutter 中 ，是通过实现 `State` 与 `setState` 来渲染和改变 `StatefulWidget` 的，如果使用了`flutter_redux` 会有怎样的效果？
 
-比如把用户信息存储在 `redux` 的 `store` 中， 好处在于: **比如某个页面修改了当前用户信息，所有绑定的该 State 的控件将由 Redux 自动同步修改。State 可以跨页面共享。**
+比如把用户信息存储在 `redux` 的 `store` 中， 好处在于: **比如某个页面修改了当前用户信息，所有绑定的该 State 的控件将由 Redux 自动同步修改，State 可以跨页面共享。**
 
-更多 Redux 的详细就不再展开，接下来我们讲讲 flutter_redux 的使用。在 redux 中主要引入了 *action、reducer、store* 概念。
+更多 Redux 的详细就不再展开，后续会有详细介绍，接下来我们讲讲 flutter_redux 的使用，在 redux 中主要引入了 *action、reducer、store* 概念。
 
 * action 用于定义一个数据变化的请求。
 * reducer 用于根据 action 产生新状态
@@ -548,7 +556,7 @@ GSYState appReducer(GSYState state, action) {
 }
 ```
 
-下面是上方使用的  `UserReducer` 的实现。这里主要通过 `TypedReducer` 将 reducer 的处理逻辑与定义的 Action 绑定，最后通过 `combineReducers`  返回 `Reducer<State>`  对象应用于上方 Store 中。
+下面是上方使用的  `UserReducer` 的实现，这里主要通过 `TypedReducer` 将 reducer 的处理逻辑与定义的 Action 绑定，最后通过 `combineReducers`  返回 `Reducer<State>`  对象应用于上方 Store 中。
 
 ```
 /// redux 的 combineReducers, 通过 TypedReducer 将 UpdateUserAction 与 reducers 关联起来
@@ -770,21 +778,15 @@ Android启动页，在 `android/app/src/main/res/drawable/launch_background.xml`
 
 ## 资源推荐
 
-* Github ： [https://github.com/CarGuo](https://github.com/CarGuo)
-* 本文代码 ：[https://github.com/CarGuo/GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter)
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 #### 完整开源项目推荐：
 
 * [GSYGithubAppWeex](https://github.com/CarGuo/GSYGithubAppWeex)
 * [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp ) 
-
-#### 文章
-
-[《Flutter完整开发实战详解(一、Dart语言和Flutter基础)》](https://juejin.im/post/5b631d326fb9a04fce524db2)
-
-[《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
 
 
 ![我们还会再见的](http://img.cdn.guoshuyu.cn/20190604_Flutter-2/image9)

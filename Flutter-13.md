@@ -1,19 +1,10 @@
 本篇将带你深入了解 Flutter 中的手势事件传递、事件分发、事件冲突竞争，滑动流畅等等的原理，帮你构建一个完整的 Flutter 闭环手势知识体系，这也许是目前最全面的手势事件和滑动源码的深入文章了。
 
+## 文章汇总地址：
 
-> 前文：
-> * [一、  Dart语言和Flutter基础](https://juejin.im/post/5b631d326fb9a04fce524db2)
-> * [二、  快速开发实战篇](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-> * [三、  打包与填坑篇](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-> * [四、  Redux、主题、国际化](https://juejin.im/post/5b79767ff265da435450a873)
-> * [五、  深入探索](https://juejin.im/post/5bc450dff265da0a951f032b)
-> * [六、  深入Widget原理](https://juejin.im/post/5c7e853151882549664b0543)
-> * [七、  深入布局原理](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-> * [八、  实用技巧与填坑](https://juejin.im/post/5c9e328251882567b91e1cfb)
-> * [九、  深入绘制原理](https://juejin.im/post/5ca0e0aff265da309728659a) 
-> * [十、  深入图片加载流程](https://juejin.im/post/5cb1896ce51d456e63760449)
-> * [十一、全面深入理解Stream](https://juejin.im/post/5cc2acf86fb9a0321f042041) 
-> * [十二、全面深入理解状态管理设计](https://juejin.im/post/5cc816866fb9a03231209c7c) 
+> [Flutter 完整实战实战系列文章专栏](https://juejin.im/collection/5db25bcff265da06a19a304e)
+>
+> [Flutter 番外的世界系列文章专栏](https://juejin.im/collection/5db25d706fb9a069f422c374)
 
 
 Flutter 中默认情况下，以 Android 为例，所有的事件都是起原生源于 `io.flutter.view.FlutterView` 这个 `SurfaceView` 的子类，整个触摸手势事件实质上经历了 **JAVA => C++ => Dart** 的一个流程，整个流程如下图所示，无论是 Android 还是 IOS ，原生层都只是将所有事件打包下发，比如在 Android 中，手势信息被打包成 `ByteBuffer` 进行传递，最后在 Dart 层的 `_dispatchPointerDataPacket` 方法中，通过  `_unpackPointerDataPacket` 方法解析成可用的 `PointerDataPacket` 对象使用。
@@ -314,9 +305,11 @@ bool get _hasSufficientPendingDragDeltaToAccept => _pendingDragOffset.dy.abs() >
 
 ### 资源推荐
 
-* Github ： https://github.com/CarGuo
 * 本文Demo ：https://github.com/CarGuo/state_manager_demo
-* 本文代码 ：https://github.com/CarGuo/GSYGithubAppFlutter
+* Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
+* **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
+* **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
+* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 
@@ -324,35 +317,7 @@ bool get _hasSufficientPendingDragDeltaToAccept => _pendingDragOffset.dy.abs() >
 * [GSYGithubApp React Native](https://github.com/CarGuo/GSYGithubApp ) 
 * [GSYGithubAppWeex](https://github.com/CarGuo/GSYGithubAppWeex)
 
-##### 文章
 
-[《Flutter完整开发实战详解(一、Dart语言和Flutter基础)》](https://juejin.im/post/5b631d326fb9a04fce524db2)
-
-[《Flutter完整开发实战详解(二、 快速开发实战篇)》](https://juejin.im/post/5b685a2a5188251ac22b71c0)
-
-[《Flutter完整开发实战详解(三、 打包与填坑篇)》](https://juejin.im/post/5b6fd4dc6fb9a0099e711162)
-
-[《Flutter完整开发实战详解(四、Redux、主题、国际化)》](https://juejin.im/post/5b79767ff265da435450a873)
-
-[《Flutter完整开发实战详解(五、 深入探索)》](https://juejin.im/post/5bc450dff265da0a951f032b)
-
-[《Flutter完整开发实战详解(六、 深入Widget原理)》](https://juejin.im/post/5c7e853151882549664b0543)
-
-[《Flutter完整开发实战详解(七、 深入布局原理)》](https://juejin.im/post/5c8c6ef7e51d450ba7233f51)
-
-[《Flutter完整开发实战详解(八、 实用技巧与填坑)》](https://juejin.im/post/5c9e328251882567b91e1cfb)
-
-[《Flutter完整开发实战详解(九、 深入绘制原理)》](https://juejin.im/post/5ca0e0aff265da309728659a)
-
-[《Flutter完整开发实战详解(十、 深入图片加载流程)》](https://juejin.im/post/5cb1896ce51d456e63760449)
-
-[《Flutter完整开发实战详解(十一、全面深入理解Stream)》](https://juejin.im/post/5cc2acf86fb9a0321f042041)
-
-[《Flutter完整开发实战详解(十二、全面深入理解状态管理设计)》](https://juejin.im/post/5cc816866fb9a03231209c7c)
-
-[《跨平台项目开源项目推荐》](https://juejin.im/post/5b6064a0f265da0f8b2fc89d)
-
-[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)
 
 ![我们还会再见吗？](http://img.cdn.guoshuyu.cn/20190604_Flutter-13/image6)
 
